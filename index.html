@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Christian Schulz – Patentanwalt vor DPMA, EPA, EPG und EUIPO. LL.M., MBA, Dipl.-Ing. Maschinenbau.">
+  <meta name="description" content="Patentanwalt Christian Schulz: Patentanmeldungen, Einspruchsverfahren und FTO-Analysen vor DPMA, EPA, EPG und EUIPO. Spezialist für Wehrtechnik und Asien-Pazifik.">
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://schulz-patent.de/" />
+  <meta property="og:title"       content="Christian Schulz · Patentanwalt" />
+  <meta property="og:description" content="Patentanwalt mit technischer Tiefe, juristischer Präzision und strategischem Denken. Spezialist für Wehrtechnik, China und Asien-Pazifik." />
+  <meta property="og:image"       content="https://schulz-patent.de/_KOE8932.jpg" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Christian Schulz · Patentanwalt" />
+  <meta name="twitter:description" content="Patentanwalt mit technischer Tiefe, juristischer Präzision und strategischem Denken." />
   <title>Christian Schulz – Patentanwalt</title>
   <style>
     /* ── Design Tokens ── */
@@ -284,6 +292,31 @@
     .usp-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
     .usp-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
     .tech-tags { display: flex; flex-wrap: wrap; margin-top: 0.7rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-grid       { grid-template-columns: 1fr; }
+      .hero-photo      { max-width: 320px; margin: 0 auto; }
+      .about-grid      { grid-template-columns: 1fr; }
+      .usp-grid        { grid-template-columns: 1fr 1fr; }
+      .services-grid   { grid-template-columns: 1fr 1fr; }
+      .contact-grid    { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-text       { text-align: center; }
+      .hero-statement  { text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      .section         { padding: 3rem 1.2rem; }
+      .section-light   { padding: 3rem 1.2rem; }
+      .section-dark    { padding: 3rem 1.2rem; }
+      .nav-inner       { padding: 0 1.2rem; }
+      .hero-grid       { padding: 4rem 1.2rem 3rem; }
+      .usp-grid        { grid-template-columns: 1fr; }
+      .services-grid   { grid-template-columns: 1fr; }
+      .nav-links       { display: none; }
+      #footer          { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .hero-name       { font-size: clamp(2rem, 8vw, 3.5rem); }
+    }
   </style>
 </head>
 <body>
@@ -543,7 +576,109 @@
 </div>
 
   <script>
-    // language switcher goes here in Task 9
+    const translations = {
+      de: {
+        "nav.about": "Über mich", "nav.services": "Leistungen", "nav.contact": "Kontakt",
+        "hero.eyebrow": "Patentanwalt · DPMA · EPA · EPG · EUIPO",
+        "hero.line1": "Technische Tiefe.", "hero.line2": "Juristische Präzision.", "hero.line3": "Strategisches Denken.",
+        "hero.cta": "Kontakt aufnehmen",
+        "about.label": "Über mich", "about.title": "Ingenieur. Jurist. Stratege. Offizier.",
+        "about.p1": "Als Diplom-Ingenieur Maschinenbau und zugelassener Patentanwalt verbinde ich technische Expertise mit juristischer Präzision. Nach dem Studium an der Helmut-Schmidt-Universität Hamburg war ich zwölf Jahre Offizier der Deutschen Marine, zuletzt als Kapitänleutnant d.R.",
+        "about.p2": "Anschließend wechselte ich in die Privatwirtschaft und war acht Jahre lang als Director Patent Counsel bei adidas tätig. In dieser Zeit verantwortete ich den globalen Patentschutz und arbeitete eng mit asiatischen Zulieferern und Entwicklungspartnern zusammen, insbesondere in China und der gesamten Asien-Pazifik-Region.",
+        "about.p3": "Heute führe ich meine eigene Patentanwaltskanzlei mit dem Schwerpunkt auf technisch anspruchsvolle Schutzrechte, strategische Portfolioentwicklung und internationale IP-Beratung.",
+        "about.marine.title": "Marineoffizier mit Rüstungskompetenz",
+        "about.marine.text": "Zwölf Jahre Dienst in der Deutschen Marine prägen meinen analytischen Blick auf sicherheitsrelevante Technologien. Ich verstehe die Anforderungen der Verteidigungsindustrie und begleite Unternehmen bei der Schutzrechtsstrategie für Dual-Use-Technologien, maritime Systeme und Rüstungsgüter.",
+        "about.china.title": "China & Asien-Pazifik Praxis",
+        "about.china.text": "Bei adidas habe ich jahrelang mit chinesischen und asiatischen Zulieferern, Produzenten und Behörden zusammengearbeitet. Ich kenne die Besonderheiten des chinesischen IP-Rechts, habe vor chinesischen Gerichten agiert und begleite Mandanten beim Schutz und der Durchsetzung ihrer Rechte im asiatisch-pazifischen Raum.",
+        "about.qual.title": "Qualifikationen",
+        "usp.label": "Warum ich?", "usp.title": "Mein Profil auf einen Blick",
+        "usp.tech.title": "Technische Tiefe", "usp.tech.desc": "Dipl.-Ing. Maschinenbau mit Praxiserfahrung aus Industrie, Marine und globalem Konzernumfeld.",
+        "usp.law.title": "Juristische Präzision", "usp.law.desc": "Zugelassener Vertreter vor DPMA, EPA, EPG und EUIPO. LL.M. Europäisches IP-Recht. Erfahren in Erteilungs-, Einspruchs- und Verletzungsverfahren.",
+        "usp.strategy.title": "Strategisches Denken", "usp.strategy.desc": "8 Jahre Director Patent Counsel bei adidas. FTO-Analysen, Portfolioaufbau, Lizenzierung und Durchsetzung auf globalem Niveau.",
+        "usp.defense.title": "Wehrtechnik & Verteidigung", "usp.defense.desc": "Als ehemaliger Marineoffizier verstehe ich sicherheitsrelevante Technologien. Ich berate Unternehmen aus der Rüstungsindustrie bei Dual-Use-Patenten und Schutzrechtsstrategien.",
+        "usp.china.title": "China & Asien-Pazifik", "usp.china.desc": "Jahrelange Praxiserfahrung mit chinesischen Zulieferern, Behörden und Gerichten. Schutz und Durchsetzung von IP-Rechten im asiatisch-pazifischen Raum.",
+        "services.label": "Leistungen", "services.title": "Was ich für Sie tue",
+        "svc.1.title": "Patentanmeldungen", "svc.1.desc": "Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils in Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition.",
+        "svc.2.title": "Bescheidserwiderungen", "svc.2.desc": "Strategische Erwiderungen auf Prüfungsbescheide vor DPMA und EPA, technisch fundiert und juristisch überzeugend argumentiert.",
+        "svc.3.title": "Einspruchsverfahren", "svc.3.desc": "Vertretung in Einspruchsverfahren vor DPMA und EPA, auf der angreifenden wie auf der verteidigenden Seite. Erfahrung aus zahlreichen Verfahren auf beiden Seiten.",
+        "svc.4.title": "FTO & Patentrecherchen", "svc.4.desc": "Freedom-to-Operate-Analysen sowie Patentierbarkeits- und Rechtsbeständigkeitsrecherchen mit klaren, strategisch verwertbaren Handlungsempfehlungen.",
+        "contact.label": "Kontakt", "contact.title": "Sprechen Sie mich an",
+        "contact.addr.label": "Adresse", "contact.addr.value": "Heinrich-Knote-Straße 7a<br>82343 Pöcking",
+        "contact.email.label": "E-Mail", "contact.phone.label": "Telefon",
+        "form.name": "Ihr Name", "form.email": "Ihre E-Mail", "form.subject": "Betreff",
+        "form.message": "Ihre Nachricht", "form.submit": "Nachricht senden",
+        "form.success": "Ihre Nachricht wurde gesendet. Ich melde mich bald.",
+        "footer.copy": "© 2026 Christian Schulz · Patentanwalt · Pöcking",
+        "footer.imprint": "Impressum", "footer.privacy": "Datenschutz",
+        "impressum.title": "Impressum", "privacy.title": "Datenschutzerklärung",
+      },
+      en: {
+        "nav.about": "About", "nav.services": "Services", "nav.contact": "Contact",
+        "hero.eyebrow": "Patent Attorney · DPMA · EPO · UPC · EUIPO",
+        "hero.line1": "Technical Depth.", "hero.line2": "Legal Precision.", "hero.line3": "Strategic Thinking.",
+        "hero.cta": "Get in Touch",
+        "about.label": "About", "about.title": "Engineer. Lawyer. Strategist. Officer.",
+        "about.p1": "As a graduate engineer in mechanical engineering and a qualified patent attorney, I combine technical expertise with legal precision. After studying at Helmut-Schmidt-University Hamburg, I served twelve years as an officer in the German Navy, rising to the rank of Kapitänleutnant (Lieutenant Commander, Reserve).",
+        "about.p2": "I then moved to the private sector, spending eight years as Director Patent Counsel at adidas. During this time I managed global patent protection and worked closely with Asian suppliers and development partners, particularly in China and across the Asia-Pacific region.",
+        "about.p3": "Today I run my own patent law firm, focusing on technically demanding IP rights, strategic portfolio development, and international IP advisory.",
+        "about.marine.title": "Naval Officer with Defence Industry Expertise",
+        "about.marine.text": "Twelve years of service in the German Navy give me an analytical perspective on security-relevant technologies. I understand the requirements of the defence industry and advise companies on IP strategy for dual-use technologies, maritime systems, and defence goods.",
+        "about.china.title": "China & Asia-Pacific Practice",
+        "about.china.text": "At adidas, I worked for years with Chinese and Asian suppliers, manufacturers, and authorities. I know the specifics of Chinese IP law, have acted before Chinese courts, and guide clients in protecting and enforcing their rights across the Asia-Pacific region.",
+        "about.qual.title": "Qualifications",
+        "usp.label": "Why me?", "usp.title": "My Profile at a Glance",
+        "usp.tech.title": "Technical Depth", "usp.tech.desc": "Graduate engineer in mechanical engineering with hands-on experience in industry, the Navy, and a global corporate environment.",
+        "usp.law.title": "Legal Precision", "usp.law.desc": "Qualified representative before DPMA, EPO, UPC, and EUIPO. LL.M. European IP Law. Experienced in grant, opposition, and infringement proceedings.",
+        "usp.strategy.title": "Strategic Thinking", "usp.strategy.desc": "8 years as Director Patent Counsel at adidas. FTO analyses, portfolio building, licensing, and enforcement at global scale.",
+        "usp.defense.title": "Defence Technology", "usp.defense.desc": "As a former naval officer, I understand security-relevant technologies. I advise defence industry clients on dual-use patents and IP protection strategies.",
+        "usp.china.title": "China & Asia-Pacific", "usp.china.desc": "Years of hands-on experience with Chinese suppliers, authorities, and courts. Protection and enforcement of IP rights across the Asia-Pacific region.",
+        "services.label": "Services", "services.title": "What I Do for You",
+        "svc.1.title": "Patent Applications", "svc.1.desc": "Drafting and filing at DPMA, EPO, and internationally via the PCT route, in both German and English. The focus is on technically precise and strategically aligned claim drafting.",
+        "svc.2.title": "Office Action Responses", "svc.2.desc": "Strategic responses to examination reports before DPMA and EPO, technically grounded and legally persuasive.",
+        "svc.3.title": "Opposition Proceedings", "svc.3.desc": "Representation in opposition proceedings before DPMA and EPO, both on the attacking and defending side. Experience from numerous proceedings on both sides.",
+        "svc.4.title": "FTO & Patent Searches", "svc.4.desc": "Freedom-to-operate analyses and patentability and validity searches with clear, strategically actionable recommendations.",
+        "contact.label": "Contact", "contact.title": "Let's Talk",
+        "contact.addr.label": "Address", "contact.addr.value": "Heinrich-Knote-Straße 7a<br>82343 Pöcking, Germany",
+        "contact.email.label": "Email", "contact.phone.label": "Phone",
+        "form.name": "Your Name", "form.email": "Your Email", "form.subject": "Subject",
+        "form.message": "Your Message", "form.submit": "Send Message",
+        "form.success": "Your message has been sent. I will be in touch soon.",
+        "footer.copy": "© 2026 Christian Schulz · Patent Attorney · Pöcking",
+        "footer.imprint": "Legal Notice", "footer.privacy": "Privacy Policy",
+        "impressum.title": "Legal Notice", "privacy.title": "Privacy Policy",
+      }
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      const t = translations[lang] || translations.de;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
+      });
+      const btn = document.getElementById('langToggle');
+      if (btn) btn.textContent = lang === 'de' ? 'EN' : 'DE';
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    function toggleLanguage() {
+      const current = document.documentElement.lang || 'de';
+      setLanguage(current === 'de' ? 'en' : 'de');
+    }
+
+    (function init() {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      let lang = urlLang || (function() {
+        try { return localStorage.getItem('lang'); } catch(e) { return null; }
+      })() || (navigator.language || '').slice(0, 2).toLowerCase();
+      if (lang !== 'de' && lang !== 'en') lang = 'de';
+      setLanguage(lang);
+    })();
 
     // Contact form: AJAX submit to Formspree
     const form = document.getElementById('contactForm');
