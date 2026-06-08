@@ -226,6 +226,22 @@
     .quals-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; padding-top: 0.3rem; }
     .quals-list li { display: flex; align-items: flex-start; gap: 0.7rem; color: var(--text-dim); font-size: 0.78rem; line-height: 1.6; }
     .qual-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
+
+    /* ── Warum ich / USP ── */
+    .usp-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .usp-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .usp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 2px solid var(--accent-green);
+      padding: 1.4rem;
+    }
+    .usp-card.usp-defense { border-top-color: var(--accent-blue); background: #0d1e2e; }
+    .usp-card.usp-china   { border-top-color: var(--accent-red);  background: #1a100e; }
+    .usp-icon  { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .usp-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .usp-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
+    .tech-tags { display: flex; flex-wrap: wrap; margin-top: 0.7rem; }
   </style>
 </head>
 <body>
@@ -313,6 +329,77 @@
       <li><span class="qual-dot"></span><span data-i18n="qual.5">Kapitänleutnant d.R. · Deutsche Marine (1999–2011)</span></li>
       <li><span class="qual-dot"></span><span data-i18n="qual.6">Mitglied Rechtsausschuss · Patentanwaltskammer München (seit 2020)</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- ══ WARUM ICH ══ -->
+<section id="warum-ich" class="section-dark">
+  <p class="label" data-i18n="usp.label">Warum ich?</p>
+  <h2 class="section-title" data-i18n="usp.title">Fünf Stärken für Ihren Schutz</h2>
+
+  <div class="usp-row-3">
+    <div class="usp-card">
+      <div class="usp-icon">⚙️</div>
+      <h3 class="usp-title" data-i18n="usp.tech.title">Technische Tiefe</h3>
+      <p class="usp-desc" data-i18n="usp.tech.desc">Als Dipl.-Ing. Maschinenbau verstehe ich Ihre Erfindung nicht nur juristisch, sondern technisch von Grund auf.</p>
+      <div class="tech-tags">
+        <span class="tag tag-green tag-bold" data-i18n="tag.ai">Künstliche Intelligenz</span>
+        <span class="tag tag-green" data-i18n="tag.emobility">E-Mobilität</span>
+        <span class="tag tag-green" data-i18n="tag.adas">Fahrerassistenz</span>
+        <span class="tag tag-green" data-i18n="tag.addmfg">Additive Fertigung</span>
+        <span class="tag tag-green" data-i18n="tag.mfg">Herstellungsverfahren</span>
+        <span class="tag tag-green" data-i18n="tag.sports">Sportartikel</span>
+        <span class="tag tag-green" data-i18n="tag.hydraulics">Hydraulik &amp; Pneumatik</span>
+        <span class="tag tag-green" data-i18n="tag.brakes">Bremssysteme</span>
+        <span class="tag tag-green" data-i18n="tag.drive">Antriebstechnik</span>
+        <span class="tag tag-green" data-i18n="tag.automation">Automatisierung</span>
+        <span class="tag tag-green" data-i18n="tag.renewable">Erneuerbare Energien</span>
+        <span class="tag tag-green" data-i18n="tag.medtech">Medizintechnik</span>
+        <span class="tag tag-green" data-i18n="tag.measurement">Messtechnik</span>
+        <span class="tag tag-green" data-i18n="tag.aerospace">Luftfahrt</span>
+        <span class="tag tag-green" data-i18n="tag.iot">IoT</span>
+        <span class="tag tag-green" data-i18n="tag.blockchain">Blockchain</span>
+        <span class="tag tag-green" data-i18n="tag.control">Regelungstechnik</span>
+        <span class="tag tag-green" data-i18n="tag.appliances">Haushaltsgeräte</span>
+        <span class="tag tag-green" data-i18n="tag.consumer">Konsumgüter</span>
+        <span class="tag tag-blue" data-i18n="tag.defense">Wehrtechnik</span>
+        <span class="tag tag-blue" data-i18n="tag.maritime">Maritime Systeme</span>
+      </div>
+    </div>
+    <div class="usp-card">
+      <div class="usp-icon">⚖️</div>
+      <h3 class="usp-title" data-i18n="usp.legal.title">Juristische Präzision</h3>
+      <p class="usp-desc" data-i18n="usp.legal.desc">Zugelassener Vertreter vor DPMA, EPA, EPG und EUIPO mit LL.M. in europäischem IP-Recht. Erfahren in Erteilungs-, Einspruchs- und Verletzungsverfahren auf nationaler und internationaler Ebene.</p>
+    </div>
+    <div class="usp-card">
+      <div class="usp-icon">♟️</div>
+      <h3 class="usp-title" data-i18n="usp.strategy.title">Strategisches Denken</h3>
+      <p class="usp-desc" data-i18n="usp.strategy.desc">Acht Jahre als Director Patent Counsel bei adidas: Portfolioaufbau, FTO, Lizenzierung und weltweite Durchsetzung. Ich denke nicht nur in Patenten, sondern in Wettbewerbsvorteilen.</p>
+    </div>
+  </div>
+
+  <div class="usp-row-2">
+    <div class="usp-card usp-defense">
+      <div class="usp-icon">⚓</div>
+      <h3 class="usp-title" data-i18n="usp.defense.title">Wehrtechnik &amp; Verteidigung</h3>
+      <p class="usp-desc" data-i18n="usp.defense.desc">Zwölf Jahre Offizier der Deutschen Marine geben mir ein einzigartiges Verständnis für Wehrtechnologie, Systemsicherheit und die Anforderungen der Rüstungsindustrie. In der aktuellen geopolitischen Lage ist das ein entscheidender Vorteil für Ihre IP-Strategie.</p>
+      <div class="tech-tags">
+        <span class="tag tag-blue" data-i18n="tag.dualuse">Dual Use</span>
+        <span class="tag tag-blue" data-i18n="tag.maritime">Maritime Systeme</span>
+        <span class="tag tag-blue" data-i18n="tag.sensors">Sensorik</span>
+        <span class="tag tag-blue" data-i18n="tag.c2">Führungssysteme</span>
+      </div>
+    </div>
+    <div class="usp-card usp-china">
+      <div class="usp-icon">🏮</div>
+      <h3 class="usp-title" data-i18n="usp.china.title">China &amp; Asien-Pazifik</h3>
+      <p class="usp-desc" data-i18n="usp.china.desc">Jahrelange Praxiserfahrung mit chinesischen und asiatischen Partnern sowie erfolgreiche Rechtsdurchsetzung vor dem chinesischen Obersten Gerichtshof. Ich kenne die Besonderheiten des chinesischen IP-Systems aus eigener Anschauung.</p>
+      <div class="tech-tags">
+        <span class="tag tag-red" data-i18n="tag.chinaip">China IP</span>
+        <span class="tag tag-red" data-i18n="tag.apac2">Asien-Strategie</span>
+        <span class="tag tag-red" data-i18n="tag.supply">Lieferkettenschutz</span>
+      </div>
+    </div>
   </div>
 </section>
 
