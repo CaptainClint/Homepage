@@ -215,6 +215,17 @@
       line-height: 1.8;
       margin-bottom: 1.8rem;
     }
+    /* ── Über mich ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text { color: var(--text-dim); font-size: 0.85rem; line-height: 1.8; }
+    .quals-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; padding-top: 0.3rem; }
+    .quals-list li { display: flex; align-items: flex-start; gap: 0.7rem; color: var(--text-dim); font-size: 0.78rem; line-height: 1.6; }
+    .qual-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
   </style>
 </head>
 <body>
@@ -246,6 +257,62 @@
       <span data-i18n="hero.s3">Strategisches Denken.</span>
     </div>
     <a href="#kontakt" class="btn-primary" data-i18n="hero.cta">Kontakt aufnehmen</a>
+  </div>
+</section>
+
+<!-- ══ ÜBER MICH ══ -->
+<section id="ueber-mich" class="section-light">
+  <p class="label" data-i18n="about.label">Über mich</p>
+  <h2 class="section-title" data-i18n="about.title">Ingenieur. Jurist. Stratege. Offizier.</h2>
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="about-text" data-i18n="about.text1">
+        Als Dipl.-Ing. Maschinenbau, LL.M. in europäischem IP-Recht und MBA spreche ich die Sprache der Ingenieure und der Unternehmen zugleich. Seit 2017 bin ich als selbstständiger Patentanwalt vor dem DPMA, EPA, EPG und EUIPO zugelassen.
+      </p>
+      <p class="about-text" style="margin-top:0.8rem;" data-i18n="about.text2">
+        Acht Jahre lang war ich als Director Patent Counsel bei der adidas AG tätig, verantwortlich für globalen Patentschutz, Handlungsfreiheit sowie offensive und defensive Rechtsstreitigkeiten. In dieser Zeit arbeitete ich eng mit asiatischen Zulieferern und Produktionsstätten zusammen und führte erfolgreich eine Patentnichtigkeitsklage vor dem chinesischen Obersten Gerichtshof.
+      </p>
+
+      <!-- Marine Banner -->
+      <div class="banner banner-marine">
+        <div class="banner-icon">⚓</div>
+        <div>
+          <p class="banner-title" data-i18n="about.marine.title">12 Jahre Deutsche Marine &nbsp;·&nbsp; Kapitänleutnant d.R.</p>
+          <p class="banner-desc" data-i18n="about.marine.desc">Als Schiffstechnikoffizier auf einem Minenjagdboot erwarb ich tiefes Verständnis komplexer technischer Systeme unter Einsatzbedingungen: Antriebstechnik, Sensorik und Führungssysteme. Diese Erfahrung macht mich zum idealen Ansprechpartner für Mandanten aus der Wehrtechnik und Verteidigungsindustrie. Ich verstehe Ihre Technologie, kenne Ihre Sicherheitsanforderungen und denke strategisch in Ihrer Sprache.</p>
+          <div class="banner-tags">
+            <span class="tag tag-blue" data-i18n="tag.defense">Wehrtechnik</span>
+            <span class="tag tag-blue" data-i18n="tag.dualuse">Dual Use</span>
+            <span class="tag tag-blue" data-i18n="tag.maritime">Maritime Systeme</span>
+            <span class="tag tag-blue" data-i18n="tag.arms">Rüstungsindustrie</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- China Banner -->
+      <div class="banner banner-china">
+        <div class="banner-icon">🏮</div>
+        <div>
+          <p class="banner-title" data-i18n="about.china.title">China-Kompetenz aus der Praxis</p>
+          <p class="banner-desc" data-i18n="about.china.desc">Bei adidas arbeitete ich jahrelang eng mit chinesischen und anderen asiatischen Zulieferern und Partnern zusammen. Ich kenne die Besonderheiten des chinesischen IP-Systems aus erster Hand und habe Schutzrechte erfolgreich vor chinesischen Gerichten durchgesetzt. Für Unternehmen, die ihr China-Geschäft IP-rechtlich absichern möchten, bin ich der richtige Ansprechpartner.</p>
+          <div class="banner-tags">
+            <span class="tag tag-red" data-i18n="tag.chinaip">China IP</span>
+            <span class="tag tag-red" data-i18n="tag.apac">Asien-Pazifik</span>
+            <span class="tag tag-red" data-i18n="tag.supply">Lieferkettenschutz</span>
+            <span class="tag tag-red" data-i18n="tag.chinesecourts">Chinesische Gerichte</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Qualifikationen -->
+    <ul class="quals-list">
+      <li><span class="qual-dot"></span><span data-i18n="qual.1">Zugelassener Vertreter vor DPMA, EPA, EPG und EUIPO</span></li>
+      <li><span class="qual-dot"></span><span data-i18n="qual.2">LL.M. Europäisches IP-Recht · FernUniversität Hagen</span></li>
+      <li><span class="qual-dot"></span><span data-i18n="qual.3">MBA Internationales Management · ESB Reutlingen / UniBw München</span></li>
+      <li><span class="qual-dot"></span><span data-i18n="qual.4">Dipl.-Ing. Maschinenbau · Helmut-Schmidt-Universität Hamburg</span></li>
+      <li><span class="qual-dot"></span><span data-i18n="qual.5">Kapitänleutnant d.R. · Deutsche Marine (1999–2011)</span></li>
+      <li><span class="qual-dot"></span><span data-i18n="qual.6">Mitglied Rechtsausschuss · Patentanwaltskammer München (seit 2020)</span></li>
+    </ul>
   </div>
 </section>
 
