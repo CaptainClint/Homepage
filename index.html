@@ -256,6 +256,19 @@
     .form-field:focus { outline: none; border-color: var(--accent-green); }
     .form-success { color: var(--accent-green); font-size: 0.82rem; margin-top: 0.7rem; }
 
+    /* ── Footer ── */
+    #footer {
+      background: #080f15;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy  { color: #444; font-size: 0.72rem; }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-link  { background: none; border: none; color: #444; font-size: 0.72rem; cursor: pointer; font-family: inherit; }
+    .footer-link:hover { color: var(--accent-green); }
+
     /* ── Warum ich / USP ── */
     .usp-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .usp-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -486,7 +499,48 @@
   </div>
 </section>
 
-<!-- further sections follow -->
+<!-- ══ FOOTER ══ -->
+<footer id="footer">
+  <span class="footer-copy" data-i18n="footer.copy">© 2026 Christian Schulz · Patentanwalt · Pöcking</span>
+  <div class="footer-links">
+    <button class="footer-link" onclick="openModal('impressum')" data-i18n="footer.imprint">Impressum</button>
+    <button class="footer-link" onclick="openModal('datenschutz')" data-i18n="footer.privacy">Datenschutz</button>
+  </div>
+</footer>
+
+<!-- ══ MODAL: IMPRESSUM ══ -->
+<div class="modal-overlay" id="modal-impressum">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('impressum')">&times;</button>
+    <h2 data-i18n="impressum.title">Impressum</h2>
+    <h3>Angaben gemäß § 5 TMG</h3>
+    <p>Christian Schulz<br>Patentanwalt<br>Heinrich-Knote-Straße 7a<br>82343 Pöcking</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: +49 (0) 1633 3456 27<br>E-Mail: info@schulz-patent.de</p>
+    <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+    <p>Berufsbezeichnung: Patentanwalt (verliehen in der Bundesrepublik Deutschland)<br>
+    Zuständige Kammer: Patentanwaltskammer, Tal 29, 80331 München<br>
+    Berufsrechtliche Regelungen: Patentanwaltsordnung (PAO) — einsehbar unter <a href="https://www.patentanwaltskammer.de" target="_blank" rel="noopener" style="color:var(--accent-green)">www.patentanwaltskammer.de</a></p>
+    <h3>Haftungsausschluss</h3>
+    <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.</p>
+  </div>
+</div>
+
+<!-- ══ MODAL: DATENSCHUTZ ══ -->
+<div class="modal-overlay" id="modal-datenschutz">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('datenschutz')">&times;</button>
+    <h2 data-i18n="privacy.title">Datenschutzerklärung</h2>
+    <h3>Verantwortlicher</h3>
+    <p>Christian Schulz, Heinrich-Knote-Straße 7a, 82343 Pöcking, info@schulz-patent.de</p>
+    <h3>Erhebung und Verwendung personenbezogener Daten</h3>
+    <p>Beim Aufruf dieser Website werden durch den Browser automatisch Informationen an den Server übermittelt (z.B. IP-Adresse, Datum/Uhrzeit des Zugriffs). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt.</p>
+    <h3>Kontaktformular</h3>
+    <p>Bei Nutzung des Kontaktformulars werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung der Anfrage gespeichert. Die Übermittlung erfolgt über den Dienst Formspree (formspree.io). Die Datenschutzerklärung von Formspree ist unter <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener" style="color:var(--accent-green)">formspree.io/legal/privacy-policy</a> einsehbar.</p>
+    <h3>Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie ein Widerspruchsrecht. Kontakt: info@schulz-patent.de</p>
+  </div>
+</div>
 
   <script>
     // language switcher goes here in Task 9
@@ -504,6 +558,20 @@
         }
       });
     }
+
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal-overlay').forEach(el => {
+      el.addEventListener('click', function(e) {
+        if (e.target === el) closeModal(el.id.replace('modal-', ''));
+      });
+    });
   </script>
 </body>
 </html>
