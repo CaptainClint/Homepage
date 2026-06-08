@@ -227,6 +227,12 @@
     .quals-list li { display: flex; align-items: flex-start; gap: 0.7rem; color: var(--text-dim); font-size: 0.78rem; line-height: 1.6; }
     .qual-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
 
+    /* ── Leistungen ── */
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .service-card  { background: var(--bg-card); padding: 1.4rem; border-left: 2px solid var(--accent-green); }
+    .service-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .service-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
+
     /* ── Warum ich / USP ── */
     .usp-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .usp-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -399,6 +405,30 @@
         <span class="tag tag-red" data-i18n="tag.apac2">Asien-Strategie</span>
         <span class="tag tag-red" data-i18n="tag.supply">Lieferkettenschutz</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LEISTUNGEN ══ -->
+<section id="leistungen" class="section-light">
+  <p class="label" data-i18n="services.label">Leistungen</p>
+  <h2 class="section-title" data-i18n="services.title">Was ich für Sie tue</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3 class="service-title" data-i18n="svc.1.title">Patentanmeldungen</h3>
+      <p class="service-desc" data-i18n="svc.1.desc">Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils in Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition.</p>
+    </div>
+    <div class="service-card">
+      <h3 class="service-title" data-i18n="svc.2.title">Bescheidserwiderungen</h3>
+      <p class="service-desc" data-i18n="svc.2.desc">Strategische Erwiderungen auf Prüfungsbescheide vor DPMA und EPA, technisch fundiert und juristisch überzeugend argumentiert.</p>
+    </div>
+    <div class="service-card">
+      <h3 class="service-title" data-i18n="svc.3.title">Einspruchsverfahren</h3>
+      <p class="service-desc" data-i18n="svc.3.desc">Vertretung in Einspruchsverfahren vor DPMA und EPA, auf der angreifenden wie auf der verteidigenden Seite. Erfahrung aus zahlreichen Verfahren auf beiden Seiten.</p>
+    </div>
+    <div class="service-card">
+      <h3 class="service-title" data-i18n="svc.4.title">FTO &amp; Patentrecherchen</h3>
+      <p class="service-desc" data-i18n="svc.4.desc">Freedom-to-Operate-Analysen sowie Patentierbarkeits- und Rechtsbeständigkeitsrecherchen mit klaren, strategisch verwertbaren Handlungsempfehlungen.</p>
     </div>
   </div>
 </section>
