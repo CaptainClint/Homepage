@@ -130,11 +130,66 @@
     .modal-box h2 { color: var(--text-primary); margin-bottom: 1rem; font-weight: 300; }
     .modal-box p, .modal-box li { color: var(--text-muted); font-size: 0.82rem; line-height: 1.8; margin-bottom: 0.6rem; }
     .modal-box h3 { color: var(--accent-green); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 1.2rem 0 0.4rem; }
+
+    /* ── Navigation ── */
+    #nav {
+      position: sticky; top: 0; z-index: 500;
+      background: var(--bg-nav);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 2.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--accent-green); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-green); }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { background: var(--accent-green); color: #0f1923; }
   </style>
 </head>
 <body>
 
-  <!-- content goes here in subsequent tasks -->
+  <!-- ══ NAVIGATION ══ -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">schulz<span>-patent</span></a>
+    <div class="nav-links">
+      <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
+      <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+      <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
+    </div>
+  </nav>
+
+  <!-- further sections follow -->
 
   <script>
     // language switcher goes here in Task 9
