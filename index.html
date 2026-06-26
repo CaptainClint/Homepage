@@ -13,21 +13,24 @@
   <meta name="twitter:title"       content="Christian Schulz · Patentanwalt" />
   <meta name="twitter:description" content="Patentanwalt mit technischer Tiefe, juristischer Präzision und strategischem Denken." />
   <title>Christian Schulz – Patentanwalt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
   <style>
     /* ── Design Tokens ── */
     :root {
-      --bg-primary:    #0f1923;
-      --bg-secondary:  #111d27;
-      --bg-card:       #162030;
-      --bg-nav:        rgba(15, 25, 35, 0.97);
-      --accent-green:  #6ee7b7;
-      --accent-blue:   #4db8d4;
-      --accent-red:    #e88080;
-      --border-subtle: #1e3a3a;
+      --bg-primary:    #0c2340;
+      --bg-secondary:  #091a30;
+      --bg-card:       #0f2a4a;
+      --bg-nav:        rgba(12, 35, 64, 0.97);
+      --accent-green:  #b8960c;
+      --accent-blue:   #4a90c4;
+      --accent-red:    #c97070;
+      --border-subtle: #1a3a5c;
       --text-primary:  #ffffff;
-      --text-secondary:#cccccc;
-      --text-muted:    #888888;
-      --text-dim:      #aaaaaa;
+      --text-secondary:#ccd6e0;
+      --text-muted:    #7a9ab5;
+      --text-dim:      #a0b8cc;
     }
 
     /* ── Reset & Base ── */
@@ -36,7 +39,7 @@
     body {
       background: var(--bg-primary);
       color: var(--text-secondary);
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
     }
@@ -154,9 +157,22 @@
       color: var(--text-primary);
       font-size: 1rem;
       font-weight: 300;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: baseline;
+      gap: 0.15em;
     }
-    .nav-logo span { color: var(--accent-green); }
+    .nav-logo .logo-name { font-weight: 300; letter-spacing: 0.12em; }
+    .nav-logo .logo-ip   { font-weight: 600; color: var(--accent-green); letter-spacing: 0.08em; }
+    .nav-logo .logo-sub  {
+      font-size: 0.48rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-green);
+      font-weight: 300;
+      margin-left: 0.4em;
+      align-self: center;
+      padding-top: 0.1em;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -266,7 +282,7 @@
 
     /* ── Footer ── */
     #footer {
-      background: #080f15;
+      background: #050f1a;
       padding: 1.2rem 2.5rem;
       display: flex;
       justify-content: space-between;
@@ -286,8 +302,8 @@
       border-top: 2px solid var(--accent-green);
       padding: 1.4rem;
     }
-    .usp-card.usp-defense { border-top-color: var(--accent-blue); background: #0d1e2e; }
-    .usp-card.usp-china   { border-top-color: var(--accent-red);  background: #1a100e; }
+    .usp-card.usp-defense { border-top-color: var(--accent-blue); background: #0a1e35; }
+    .usp-card.usp-china   { border-top-color: var(--accent-red);  background: #1a1525; }
     .usp-icon  { font-size: 1.3rem; margin-bottom: 0.6rem; }
     .usp-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
     .usp-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
@@ -323,7 +339,7 @@
 
   <!-- ══ NAVIGATION ══ -->
   <nav id="nav">
-    <a href="#" class="nav-logo">schulz<span>-patent</span></a>
+    <a href="#" class="nav-logo"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span><span class="logo-sub">PATENT ATTORNEY</span></a>
     <div class="nav-links">
       <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
       <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
