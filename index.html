@@ -323,8 +323,8 @@
     .cta-block     { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle); }
     .cta-intro     { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 1.6rem; }
     .cta-intro strong { color: var(--accent-green); font-weight: 600; letter-spacing: 0.05em; }
-    .cta-list      { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 2.5rem; }
-    .cta-list li   { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.65; padding-left: 1rem; position: relative; }
+    .cta-list      { list-style: none; columns: 2; column-gap: 2.5rem; }
+    .cta-list li   { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.55rem; break-inside: avoid; }
     .cta-list li::before { content: '·'; position: absolute; left: 0; color: var(--accent-green); }
 
     /* ── Kontakt ── */
