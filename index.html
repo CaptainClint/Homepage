@@ -289,6 +289,32 @@
     .lang-item .lang-name  { color: var(--text-primary); font-size: 0.8rem; font-weight: 500; }
     .lang-item .lang-level { color: var(--text-muted); font-size: 0.7rem; margin-top: 0.1rem; }
 
+    /* ── Accordion (details/summary) ── */
+    .profile-section details { border-bottom: 1px solid var(--border-subtle); }
+    .profile-section details summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.75rem 0;
+      color: var(--text-primary);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .profile-section details summary::-webkit-details-marker { display: none; }
+    .profile-section details summary::after {
+      content: '+';
+      color: var(--accent-green);
+      font-size: 1rem;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+    .profile-section details[open] summary::after { content: '−'; }
+    .profile-section details .accordion-body { padding: 0.6rem 0 1rem; }
+
     /* ── Leistungen ── */
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .service-card  { background: var(--bg-card); padding: 1.4rem; border-left: 2px solid var(--accent-green); }
@@ -430,102 +456,126 @@
 
       <!-- Werdegang -->
       <div class="profile-section">
-        <p class="profile-section-title">Werdegang</p>
-        <div class="timeline-item">
-          <span class="timeline-year">seit 2017</span>
-          <div><p class="timeline-role">Selbstständiger Patentanwalt</p><p class="timeline-org">Schulz IP, Pöcking</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2017–2025</span>
-          <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">adidas AG, Herzogenaurach</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2015–2017</span>
-          <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">Maiwald, München</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2011–2014</span>
-          <div><p class="timeline-role">Patentanwaltskandidat</p><p class="timeline-org">Grättinger Möhring von Poschinger, München</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">1999–2011</span>
-          <div><p class="timeline-role">Offizier</p><p class="timeline-org">Deutsche Marine, zuletzt Kapitänleutnant d.R.</p></div>
-        </div>
+        <details open>
+          <summary>Werdegang</summary>
+          <div class="accordion-body">
+            <div class="timeline-item">
+              <span class="timeline-year">seit 2017</span>
+              <div><p class="timeline-role">Selbstständiger Patentanwalt</p><p class="timeline-org">Schulz IP, Pöcking</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2017–2025</span>
+              <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">adidas AG, Herzogenaurach</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2015–2017</span>
+              <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">Maiwald, München</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2011–2014</span>
+              <div><p class="timeline-role">Patentanwaltskandidat</p><p class="timeline-org">Grättinger Möhring von Poschinger, München</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">1999–2011</span>
+              <div><p class="timeline-role">Offizier</p><p class="timeline-org">Deutsche Marine, zuletzt Kapitänleutnant d.R.</p></div>
+            </div>
+          </div>
+        </details>
       </div>
 
       <!-- Ausbildung -->
       <div class="profile-section">
-        <p class="profile-section-title">Ausbildung</p>
-        <div class="timeline-item">
-          <span class="timeline-year">2015–2017</span>
-          <div><p class="timeline-role">LL.M. Europäisches IP-Recht</p><p class="timeline-org">FernUniversität Hagen</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2011–2014</span>
-          <div><p class="timeline-role">Ausbildung zum deutschen und europäischen Patentanwalt</p><p class="timeline-org">Zulassung vor DPMA und EPA</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2009–2011</span>
-          <div><p class="timeline-role">MBA Internationales Management</p><p class="timeline-org">ESB Reutlingen / UniBw München</p></div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2000–2004</span>
-          <div><p class="timeline-role">Dipl.-Ing. Maschinenbau</p><p class="timeline-org">Helmut-Schmidt-Universität Hamburg</p></div>
-        </div>
+        <details>
+          <summary>Ausbildung</summary>
+          <div class="accordion-body">
+            <div class="timeline-item">
+              <span class="timeline-year">2015–2017</span>
+              <div><p class="timeline-role">LL.M. Europäisches IP-Recht</p><p class="timeline-org">FernUniversität Hagen</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2011–2014</span>
+              <div><p class="timeline-role">Ausbildung zum deutschen und europäischen Patentanwalt</p><p class="timeline-org">Zulassung vor DPMA und EPA</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2009–2011</span>
+              <div><p class="timeline-role">MBA Internationales Management</p><p class="timeline-org">ESB Reutlingen / UniBw München</p></div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2000–2004</span>
+              <div><p class="timeline-role">Dipl.-Ing. Maschinenbau</p><p class="timeline-org">Helmut-Schmidt-Universität Hamburg</p></div>
+            </div>
+          </div>
+        </details>
       </div>
 
       <!-- Technische Gebiete -->
       <div class="profile-section">
-        <p class="profile-section-title">Technische Gebiete</p>
-        <ul class="profile-list">
-          <li>Maschinenbau, Physik und Elektrotechnik</li>
-          <li>E-Mobilität, z.B. elektrische Achsantriebe, Bremssysteme und Fahrerassistenzsysteme</li>
-          <li>Computerimplementierte Erfindungen, z.B. künstliche Intelligenz, Distributed Ledger (Blockchain), Regelungstechnik</li>
-          <li>Sensoren, Effektoren und Wehrtechnik</li>
-          <li>Hydraulik und Pneumatik</li>
-          <li>Haushaltsgeräte und -elektronik (White Ware)</li>
-          <li>Sportartikel, insbesondere Schuhwerk, Bekleidung, Accessoires und Fitness-Apps</li>
-          <li>Schiffbau und Marinetechnik</li>
-        </ul>
+        <details>
+          <summary>Technische Gebiete</summary>
+          <div class="accordion-body">
+            <ul class="profile-list">
+              <li>Maschinenbau, Physik und Elektrotechnik</li>
+              <li>E-Mobilität, z.B. elektrische Achsantriebe, Bremssysteme und Fahrerassistenzsysteme</li>
+              <li>Computerimplementierte Erfindungen, z.B. künstliche Intelligenz, Distributed Ledger (Blockchain), Regelungstechnik</li>
+              <li>Sensoren, Effektoren und Wehrtechnik</li>
+              <li>Hydraulik und Pneumatik</li>
+              <li>Haushaltsgeräte und -elektronik (White Ware)</li>
+              <li>Sportartikel, insbesondere Schuhwerk, Bekleidung, Accessoires und Fitness-Apps</li>
+              <li>Schiffbau und Marinetechnik</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- Tätigkeitsschwerpunkte -->
       <div class="profile-section">
-        <p class="profile-section-title">Tätigkeitsschwerpunkte</p>
-        <ul class="profile-list">
-          <li>Patenterteilungsverfahren</li>
-          <li>Anmeldestrategien (Ausrichtung, Clustering &amp; Pruning)</li>
-          <li>Invention Harvesting</li>
-          <li>Patent Clearance und FTO</li>
-          <li>Einspruchs- und Nichtigkeitsverfahren</li>
-          <li>Patentrecherchen</li>
-          <li>Geheimhaltungsvereinbarungen und Kooperationsverträge</li>
-        </ul>
+        <details>
+          <summary>Tätigkeitsschwerpunkte</summary>
+          <div class="accordion-body">
+            <ul class="profile-list">
+              <li>Patenterteilungsverfahren</li>
+              <li>Anmeldestrategien (Ausrichtung, Clustering &amp; Pruning)</li>
+              <li>Invention Harvesting</li>
+              <li>Patent Clearance und FTO</li>
+              <li>Einspruchs- und Nichtigkeitsverfahren</li>
+              <li>Patentrecherchen</li>
+              <li>Geheimhaltungsvereinbarungen und Kooperationsverträge</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- Mitgliedschaften -->
       <div class="profile-section">
-        <p class="profile-section-title">Mitgliedschaften</p>
-        <ul class="profile-list">
-          <li>Patentanwaltskammer</li>
-          <li>epi — Rechtsausschuss für Patent- und Gebrauchsmusterrecht</li>
-          <li>VDI</li>
-        </ul>
+        <details>
+          <summary>Mitgliedschaften</summary>
+          <div class="accordion-body">
+            <ul class="profile-list">
+              <li>Patentanwaltskammer</li>
+              <li>epi — Rechtsausschuss für Patent- und Gebrauchsmusterrecht</li>
+              <li>VDI</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <!-- Sprachen -->
       <div class="profile-section">
-        <p class="profile-section-title">Sprachen</p>
-        <div class="lang-grid">
-          <div class="lang-item">
-            <p class="lang-name">Deutsch</p>
-            <p class="lang-level">Muttersprache</p>
+        <details>
+          <summary>Sprachen</summary>
+          <div class="accordion-body">
+            <div class="lang-grid">
+              <div class="lang-item">
+                <p class="lang-name">Deutsch</p>
+                <p class="lang-level">Muttersprache</p>
+              </div>
+              <div class="lang-item">
+                <p class="lang-name">Englisch</p>
+                <p class="lang-level">Verhandlungssicher</p>
+              </div>
+            </div>
           </div>
-          <div class="lang-item">
-            <p class="lang-name">Englisch</p>
-            <p class="lang-level">Verhandlungssicher</p>
-          </div>
-        </div>
+        </details>
       </div>
 
     </div><!-- /.profile-right -->
