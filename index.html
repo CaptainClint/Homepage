@@ -200,11 +200,10 @@
     .lang-btn:hover { background: var(--accent-green); color: #0f1923; }
 
     /* ── SPA View Switching ── */
-    .spa-section { display: none; }
-    .spa-section.view-active { display: block; }
-    #hero.view-active { display: flex; }
-    #footer { display: none; }
-    #footer.view-active { display: flex; }
+    .spa-section { display: none !important; }
+    .spa-section.view-active { display: block !important; }
+    #hero.view-active { display: flex !important; }
+    #footer.view-active { display: flex !important; }
 
     /* ── Hero ── */
     #hero {
@@ -607,7 +606,7 @@
       const footer = document.getElementById('footer');
       if (footer) footer.classList.toggle('view-active', id !== 'hero');
       // Update URL hash without scroll jump
-      history.pushState(null, '', id === 'hero' ? '#' : '#' + id);
+      try { history.pushState(null, '', id === 'hero' ? '#' : '#' + id); } catch(e) {}
       window.scrollTo(0, 0);
     }
 
