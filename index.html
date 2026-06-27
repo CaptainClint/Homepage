@@ -257,6 +257,38 @@
     .quals-list li { display: flex; align-items: flex-start; gap: 0.7rem; color: var(--text-dim); font-size: 0.78rem; line-height: 1.6; }
     .qual-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
 
+    /* ── Profil-Layout (Über mich) ── */
+    .profile-grid { display: grid; grid-template-columns: 260px 1fr; gap: 3.5rem; align-items: start; }
+    .profile-left { position: sticky; top: 80px; }
+    .profile-photo { width: 100%; max-width: 240px; border-radius: 2px; margin-bottom: 1.2rem; box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .profile-name  { color: var(--text-primary); font-size: 1rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .profile-creds { color: var(--accent-green); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; line-height: 1.8; }
+    .profile-contact { margin-bottom: 1.4rem; }
+    .profile-contact a { color: var(--text-dim); font-size: 0.76rem; display: block; margin-bottom: 0.3rem; }
+    .profile-contact a:hover { color: var(--accent-green); }
+    .profile-bio { color: var(--text-muted); font-size: 0.76rem; line-height: 1.85; }
+    .profile-bio p + p { margin-top: 0.9rem; }
+    .profile-section { margin-bottom: 2.2rem; }
+    .profile-section-title {
+      color: var(--accent-green);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .timeline-item { display: grid; grid-template-columns: 100px 1fr; gap: 0.8rem; margin-bottom: 0.75rem; }
+    .timeline-year { color: var(--text-muted); font-size: 0.7rem; padding-top: 0.12rem; }
+    .timeline-role { color: var(--text-primary); font-size: 0.8rem; font-weight: 500; }
+    .timeline-org  { color: var(--text-dim); font-size: 0.72rem; margin-top: 0.1rem; }
+    .profile-list  { list-style: none; }
+    .profile-list li { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.7; padding: 0.15rem 0 0.15rem 1rem; position: relative; }
+    .profile-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-green); }
+    .lang-grid { display: flex; gap: 2.5rem; }
+    .lang-item .lang-name  { color: var(--text-primary); font-size: 0.8rem; font-weight: 500; }
+    .lang-item .lang-level { color: var(--text-muted); font-size: 0.7rem; margin-top: 0.1rem; }
+
     /* ── Leistungen ── */
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .service-card  { background: var(--bg-card); padding: 1.4rem; border-left: 2px solid var(--accent-green); }
@@ -375,59 +407,131 @@
 
 <!-- ══ ÜBER MICH ══ -->
 <section id="ueber-mich" class="spa-section section-light">
-  <p class="label" data-i18n="about.label">Über mich</p>
-  <h2 class="section-title" data-i18n="about.title">Ingenieur. Jurist. Stratege. Offizier.</h2>
-  <div class="about-grid">
-    <div class="about-left">
-      <p class="about-text" data-i18n="about.text1">
-        Als Dipl.-Ing. Maschinenbau, LL.M. in europäischem IP-Recht und MBA spreche ich die Sprache der Ingenieure und der Unternehmen zugleich. Seit 2017 bin ich als selbstständiger Patentanwalt vor dem DPMA, EPA, EPG und EUIPO zugelassen.
-      </p>
-      <p class="about-text" style="margin-top:0.8rem;" data-i18n="about.text2">
-        Acht Jahre lang war ich als Director Patent Counsel bei der adidas AG tätig, verantwortlich für globalen Patentschutz, Handlungsfreiheit sowie offensive und defensive Rechtsstreitigkeiten. In dieser Zeit arbeitete ich eng mit asiatischen Zulieferern und Produktionsstätten zusammen und führte erfolgreich eine Patentnichtigkeitsklage vor dem chinesischen Obersten Gerichtshof.
-      </p>
+  <div class="profile-grid">
 
-      <!-- Marine Banner -->
-      <div class="banner banner-marine">
-        <div class="banner-icon">⚓</div>
-        <div>
-          <p class="banner-title" data-i18n="about.marine.title">12 Jahre Deutsche Marine &nbsp;·&nbsp; Kapitänleutnant d.R.</p>
-          <p class="banner-desc" data-i18n="about.marine.desc">Als Schiffstechnikoffizier auf einem Minenjagdboot erwarb ich tiefes Verständnis komplexer technischer Systeme unter Einsatzbedingungen: Antriebstechnik, Sensorik und Führungssysteme. Diese Erfahrung macht mich zum idealen Ansprechpartner für Mandanten aus der Wehrtechnik und Verteidigungsindustrie. Ich verstehe Ihre Technologie, kenne Ihre Sicherheitsanforderungen und denke strategisch in Ihrer Sprache.</p>
-          <div class="banner-tags">
-            <span class="tag tag-blue" data-i18n="tag.defense">Wehrtechnik</span>
-            <span class="tag tag-blue" data-i18n="tag.dualuse">Dual Use</span>
-            <span class="tag tag-blue" data-i18n="tag.maritime">Maritime Systeme</span>
-            <span class="tag tag-blue" data-i18n="tag.arms">Rüstungsindustrie</span>
-          </div>
-        </div>
+    <!-- ── Linke Spalte ── -->
+    <div class="profile-left">
+      <img src="_KOE8932.jpg" alt="Christian Schulz" class="profile-photo" />
+      <p class="profile-name">Christian Schulz</p>
+      <p class="profile-creds">Patentanwalt<br>Zugelassen vor DPMA · EPA · EPG · EUIPO</p>
+      <div class="profile-contact">
+        <a href="tel:+491633345627">+49 (0) 1633 3456 27</a>
+        <a href="mailto:info@schulz-patent.de">info@schulz-patent.de</a>
       </div>
-
-      <!-- China Banner -->
-      <div class="banner banner-china">
-        <div class="banner-icon">🏮</div>
-        <div>
-          <p class="banner-title" data-i18n="about.china.title">China-Kompetenz aus der Praxis</p>
-          <p class="banner-desc" data-i18n="about.china.desc">Bei adidas arbeitete ich jahrelang eng mit chinesischen und anderen asiatischen Zulieferern und Partnern zusammen. Ich kenne die Besonderheiten des chinesischen IP-Systems aus erster Hand und habe Schutzrechte erfolgreich vor chinesischen Gerichten durchgesetzt. Für Unternehmen, die ihr China-Geschäft IP-rechtlich absichern möchten, bin ich der richtige Ansprechpartner.</p>
-          <div class="banner-tags">
-            <span class="tag tag-red" data-i18n="tag.chinaip">China IP</span>
-            <span class="tag tag-red" data-i18n="tag.apac">Asien-Pazifik</span>
-            <span class="tag tag-red" data-i18n="tag.supply">Lieferkettenschutz</span>
-            <span class="tag tag-red" data-i18n="tag.chinesecourts">Chinesische Gerichte</span>
-          </div>
-        </div>
+      <div class="profile-bio">
+        <p>Ich decke sämtliche Bereiche des Patentrechts ab, insbesondere das Patenterteilungs- und Einspruchsverfahren. Ich habe mehrere hundert Patentanmeldungen und Bescheidserwiderungen zum Auf- und Ausbau der Patentportfolien meiner Mandanten ausgearbeitet. Ich stärke Ihre Schutzrechtspositionen, in Vollvertretung oder als verlängerte Werkbank.</p>
+        <p>Weiterhin erhöhe ich die Handlungsfreiheit (Freedom to Operate, FTO) aus Patentsicht: Hinsichtlich der Gefahr einer Patentverletzung identifiziere und evaluiere ich Wettbewerber-Patente, die Ihren Produkten und Verfahren nahe kommen. Gemeinsam finden wir die optimale Strategie zur Risikoreduzierung. Falls notwendig, greife ich Wettbewerber-Patente an, z.B. durch einen Einspruch oder eine Nichtigkeitsklage. Diesen auch als Patent Clearance bekannten Prozess habe ich in meiner Zeit in der Patentabteilung eines der weltweit führenden Sportartikelunternehmen für unterschiedliche Geschäftseinheiten sowie eine Vielzahl von Produkten, Herstellungsprozessen und Software praktiziert und stetig optimiert.</p>
+        <p>Die technischen Schwerpunkte meiner Arbeit liegen in den Bereichen Maschinenbau, computerimplementierte Erfindungen, Fertigungstechnik, Sensorik und künstliche Intelligenz.</p>
       </div>
     </div>
 
-    <!-- Qualifikationen -->
-    <ul class="quals-list">
-      <li><span class="qual-dot"></span><span data-i18n="qual.1">Zugelassener Vertreter vor DPMA, EPA, EPG und EUIPO</span></li>
-      <li><span class="qual-dot"></span><span data-i18n="qual.2">LL.M. Europäisches IP-Recht · FernUniversität Hagen</span></li>
-      <li><span class="qual-dot"></span><span data-i18n="qual.3">MBA Internationales Management · ESB Reutlingen / UniBw München</span></li>
-      <li><span class="qual-dot"></span><span data-i18n="qual.4">Dipl.-Ing. Maschinenbau · Helmut-Schmidt-Universität Hamburg</span></li>
-      <li><span class="qual-dot"></span><span data-i18n="qual.5">Kapitänleutnant d.R. · Deutsche Marine (1999–2011)</span></li>
-      <li><span class="qual-dot"></span><span data-i18n="qual.6">Mitglied Rechtsausschuss · Patentanwaltskammer München (seit 2020)</span></li>
-    </ul>
-  </div>
+    <!-- ── Rechte Spalte ── -->
+    <div class="profile-right">
+
+      <!-- Werdegang -->
+      <div class="profile-section">
+        <p class="profile-section-title">Werdegang</p>
+        <div class="timeline-item">
+          <span class="timeline-year">seit 2017</span>
+          <div><p class="timeline-role">Selbstständiger Patentanwalt</p><p class="timeline-org">Schulz IP, Pöcking</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2017–2025</span>
+          <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">adidas AG, Herzogenaurach</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2015–2017</span>
+          <div><p class="timeline-role">Patentanwalt</p><p class="timeline-org">Maiwald, München</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2011–2014</span>
+          <div><p class="timeline-role">Patentanwaltskandidat</p><p class="timeline-org">Grättinger Möhring von Poschinger, München</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1999–2011</span>
+          <div><p class="timeline-role">Offizier</p><p class="timeline-org">Deutsche Marine, zuletzt Kapitänleutnant d.R.</p></div>
+        </div>
+      </div>
+
+      <!-- Ausbildung -->
+      <div class="profile-section">
+        <p class="profile-section-title">Ausbildung</p>
+        <div class="timeline-item">
+          <span class="timeline-year">2015–2017</span>
+          <div><p class="timeline-role">LL.M. Europäisches IP-Recht</p><p class="timeline-org">FernUniversität Hagen</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2011–2014</span>
+          <div><p class="timeline-role">Ausbildung zum deutschen und europäischen Patentanwalt</p><p class="timeline-org">Zulassung vor DPMA und EPA</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2009–2011</span>
+          <div><p class="timeline-role">MBA Internationales Management</p><p class="timeline-org">ESB Reutlingen / UniBw München</p></div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2000–2004</span>
+          <div><p class="timeline-role">Dipl.-Ing. Maschinenbau</p><p class="timeline-org">Helmut-Schmidt-Universität Hamburg</p></div>
+        </div>
+      </div>
+
+      <!-- Technische Gebiete -->
+      <div class="profile-section">
+        <p class="profile-section-title">Technische Gebiete</p>
+        <ul class="profile-list">
+          <li>Maschinenbau, Physik und Elektrotechnik</li>
+          <li>E-Mobilität, z.B. elektrische Achsantriebe, Bremssysteme und Fahrerassistenzsysteme</li>
+          <li>Computerimplementierte Erfindungen, z.B. künstliche Intelligenz, Distributed Ledger (Blockchain), Regelungstechnik</li>
+          <li>Sensoren, Effektoren und Wehrtechnik</li>
+          <li>Hydraulik und Pneumatik</li>
+          <li>Haushaltsgeräte und -elektronik (White Ware)</li>
+          <li>Sportartikel, insbesondere Schuhwerk, Bekleidung, Accessoires und Fitness-Apps</li>
+          <li>Schiffbau und Marinetechnik</li>
+        </ul>
+      </div>
+
+      <!-- Tätigkeitsschwerpunkte -->
+      <div class="profile-section">
+        <p class="profile-section-title">Tätigkeitsschwerpunkte</p>
+        <ul class="profile-list">
+          <li>Patenterteilungsverfahren</li>
+          <li>Anmeldestrategien (Ausrichtung, Clustering &amp; Pruning)</li>
+          <li>Invention Harvesting</li>
+          <li>Patent Clearance und FTO</li>
+          <li>Einspruchs- und Nichtigkeitsverfahren</li>
+          <li>Patentrecherchen</li>
+          <li>Geheimhaltungsvereinbarungen und Kooperationsverträge</li>
+        </ul>
+      </div>
+
+      <!-- Mitgliedschaften -->
+      <div class="profile-section">
+        <p class="profile-section-title">Mitgliedschaften</p>
+        <ul class="profile-list">
+          <li>Patentanwaltskammer</li>
+          <li>epi — Rechtsausschuss für Patent- und Gebrauchsmusterrecht</li>
+          <li>VDI</li>
+        </ul>
+      </div>
+
+      <!-- Sprachen -->
+      <div class="profile-section">
+        <p class="profile-section-title">Sprachen</p>
+        <div class="lang-grid">
+          <div class="lang-item">
+            <p class="lang-name">Deutsch</p>
+            <p class="lang-level">Muttersprache</p>
+          </div>
+          <div class="lang-item">
+            <p class="lang-name">Englisch</p>
+            <p class="lang-level">Verhandlungssicher</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.profile-right -->
+  </div><!-- /.profile-grid -->
 </section>
+
 
 <!-- ══ WARUM ICH ══ -->
 <section id="warum-ich" class="spa-section section-dark">
