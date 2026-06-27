@@ -199,6 +199,13 @@
     }
     .lang-btn:hover { background: var(--accent-green); color: #0f1923; }
 
+    /* ── SPA View Switching ── */
+    .spa-section { display: none; }
+    .spa-section.view-active { display: block; }
+    #hero.view-active { display: flex; }
+    #footer { display: none; }
+    #footer.view-active { display: flex; }
+
     /* ── Hero ── */
     #hero {
       background: var(--bg-primary);
@@ -206,7 +213,7 @@
       align-items: center;
       gap: 4rem;
       padding: 4.5rem 2.5rem;
-      min-height: 420px;
+      min-height: calc(100vh - 56px);
     }
     .hero-photo {
       width: 220px;
@@ -339,17 +346,17 @@
 
   <!-- ══ NAVIGATION ══ -->
   <nav id="nav">
-    <a href="#" class="nav-logo"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
+    <a href="#" class="nav-logo" onclick="showSection('hero'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
     <div class="nav-links">
-      <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
-      <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
-      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+      <a href="#ueber-mich" onclick="showSection('ueber-mich'); return false;" data-i18n="nav.about">Über mich</a>
+      <a href="#leistungen" onclick="showSection('leistungen'); return false;" data-i18n="nav.services">Leistungen</a>
+      <a href="#kontakt" onclick="showSection('kontakt'); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
   </nav>
 
   <!-- ══ HERO ══ -->
-<section id="hero">
+<section id="hero" class="spa-section view-active">
   <img src="_KOE8932.jpg" alt="Christian Schulz" class="hero-photo" />
   <div class="hero-text">
     <p class="label" data-i18n="hero.eyebrow">Patentanwalt · DPMA · EPA · EPG · EUIPO</p>
@@ -363,12 +370,12 @@
       <span data-i18n="hero.s2">Juristische Präzision.</span><br>
       <span data-i18n="hero.s3">Strategisches Denken.</span>
     </div>
-    <a href="#kontakt" class="btn-primary" data-i18n="hero.cta">Kontakt aufnehmen</a>
+    <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
   </div>
 </section>
 
 <!-- ══ ÜBER MICH ══ -->
-<section id="ueber-mich" class="section-light">
+<section id="ueber-mich" class="spa-section section-light">
   <p class="label" data-i18n="about.label">Über mich</p>
   <h2 class="section-title" data-i18n="about.title">Ingenieur. Jurist. Stratege. Offizier.</h2>
   <div class="about-grid">
@@ -424,7 +431,7 @@
 </section>
 
 <!-- ══ WARUM ICH ══ -->
-<section id="warum-ich" class="section-dark">
+<section id="warum-ich" class="spa-section section-dark">
   <p class="label" data-i18n="usp.label">Warum ich?</p>
   <h2 class="section-title" data-i18n="usp.title">Fünf Stärken für Ihren Schutz</h2>
 
@@ -495,7 +502,7 @@
 </section>
 
 <!-- ══ LEISTUNGEN ══ -->
-<section id="leistungen" class="section-light">
+<section id="leistungen" class="spa-section section-light">
   <p class="label" data-i18n="services.label">Leistungen</p>
   <h2 class="section-title" data-i18n="services.title">Was ich für Sie tue</h2>
   <div class="services-grid">
@@ -519,7 +526,7 @@
 </section>
 
 <!-- ══ KONTAKT ══ -->
-<section id="kontakt" class="section-dark">
+<section id="kontakt" class="spa-section section-dark">
   <p class="label" data-i18n="contact.label">Kontakt</p>
   <h2 class="section-title" data-i18n="contact.title">Sprechen Sie mich an</h2>
   <div class="contact-grid">
@@ -549,7 +556,7 @@
 </section>
 
 <!-- ══ FOOTER ══ -->
-<footer id="footer">
+<footer id="footer" class="spa-section">
   <span class="footer-copy" data-i18n="footer.copy">© 2026 Christian Schulz · Patentanwalt · Pöcking</span>
   <div class="footer-links">
     <button class="footer-link" onclick="openModal('impressum')" data-i18n="footer.imprint">Impressum</button>
@@ -592,6 +599,24 @@
 </div>
 
   <script>
+    function showSection(id) {
+      document.querySelectorAll('.spa-section').forEach(el => el.classList.remove('view-active'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('view-active');
+      // Show footer on all non-hero views
+      const footer = document.getElementById('footer');
+      if (footer) footer.classList.toggle('view-active', id !== 'hero');
+      // Update URL hash without scroll jump
+      history.pushState(null, '', id === 'hero' ? '#' : '#' + id);
+      window.scrollTo(0, 0);
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function() {
+      const id = location.hash.replace('#', '') || 'hero';
+      showSection(id);
+    });
+
     const translations = {
       de: {
         "nav.about": "Über mich", "nav.services": "Leistungen", "nav.contact": "Kontakt",
@@ -698,6 +723,9 @@
       })() || (navigator.language || '').slice(0, 2).toLowerCase();
       if (lang !== 'de' && lang !== 'en') lang = 'de';
       setLanguage(lang);
+      // Show section from hash if present
+      const hash = location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) showSection(hash);
     })();
 
     // Contact form: AJAX submit to Formspree
