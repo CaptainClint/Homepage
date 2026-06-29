@@ -436,11 +436,11 @@
     </p>
     <div class="hero-statement" aria-label="Leitspruch">
       <span class="lpi-tab" data-lpi="learn" onclick="showLPI('learn')">Learn.</span>
+      <div class="lpi-panel" id="lpiPanel-learn"><p class="lpi-text" id="lpiText-learn"></p></div>
       <span class="lpi-tab" data-lpi="practise" onclick="showLPI('practise')">Practise.</span>
+      <div class="lpi-panel" id="lpiPanel-practise"><p class="lpi-text" id="lpiText-practise"></p></div>
       <span class="lpi-tab" data-lpi="improve" onclick="showLPI('improve')">Improve.</span>
-    </div>
-    <div class="lpi-panel" id="lpiPanel">
-      <p class="lpi-text" id="lpiText"></p>
+      <div class="lpi-panel" id="lpiPanel-improve"><p class="lpi-text" id="lpiText-improve"></p></div>
     </div>
     <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
   </div>
@@ -805,17 +805,14 @@
 
     function showLPI(key) {
       const lang = document.documentElement.lang || 'de';
-      const panel = document.getElementById('lpiPanel');
-      const text  = document.getElementById('lpiText');
-      if (lpiActive === key) {
-        panel.classList.remove('lpi-open');
-        document.querySelectorAll('.lpi-tab').forEach(t => t.classList.remove('lpi-active'));
-        lpiActive = null;
-        return;
-      }
-      text.textContent = lpiTexts[lang][key];
-      panel.classList.add('lpi-open');
-      document.querySelectorAll('.lpi-tab').forEach(t => t.classList.remove('lpi-active'));
+      const isOpen = lpiActive === key;
+      ['learn','practise','improve'].forEach(k => {
+        document.getElementById('lpiPanel-' + k).classList.remove('lpi-open');
+        document.querySelector(`.lpi-tab[data-lpi="${k}"]`).classList.remove('lpi-active');
+      });
+      if (isOpen) { lpiActive = null; return; }
+      document.getElementById('lpiText-' + key).textContent = lpiTexts[lang][key];
+      document.getElementById('lpiPanel-' + key).classList.add('lpi-open');
       document.querySelector(`.lpi-tab[data-lpi="${key}"]`).classList.add('lpi-active');
       lpiActive = key;
     }
@@ -1023,7 +1020,7 @@
         if (t[key] !== undefined) el.innerHTML = t[key];
       });
       if (lpiActive) {
-        document.getElementById('lpiText').textContent = lpiTexts[lang][lpiActive];
+        document.getElementById('lpiText-' + lpiActive).textContent = lpiTexts[lang][lpiActive];
       }
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
