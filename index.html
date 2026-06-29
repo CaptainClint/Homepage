@@ -328,12 +328,17 @@
     .service-card  { background: var(--bg-card); padding: 1.4rem; border-left: 2px solid var(--accent-green); }
     .service-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
     .service-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
-    .cta-block     { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle); }
-    .cta-intro     { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 1.6rem; }
-    .cta-intro strong { color: var(--accent-green); font-weight: 600; letter-spacing: 0.05em; }
-    .cta-list      { list-style: none; columns: 2; column-gap: 2.5rem; }
-    .cta-list li   { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.55rem; break-inside: avoid; }
-    .cta-list li::before { content: '·'; position: absolute; left: 0; color: var(--accent-green); }
+    .promise-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle); }
+    .promise-col .label { margin-bottom: 0.6rem; }
+    .acc-item      { border-bottom: 1px solid var(--border-subtle); }
+    .acc-trigger   { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; cursor: pointer; gap: 1rem; }
+    .acc-trigger-title { color: var(--text-primary); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .acc-trigger:hover .acc-trigger-title { color: var(--accent-green); }
+    .acc-arrow     { color: var(--accent-green); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.3s; line-height: 1; }
+    .acc-trigger.acc-open .acc-arrow { transform: rotate(45deg); }
+    .acc-body      { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.35s ease; }
+    .acc-body.acc-open { max-height: 400px; opacity: 1; }
+    .acc-body p    { color: var(--text-muted); font-size: 0.77rem; line-height: 1.8; padding-bottom: 1rem; }
 
     /* ── Kontakt ── */
     .contact-grid  { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
@@ -690,25 +695,46 @@
     </div>
   </div>
 
-  <!-- CTA-Block -->
-  <div class="cta-block">
-    <p class="label" data-i18n="cta.heading">Kontaktieren Sie mich für</p>
-    <ul class="cta-list">
-      <li data-i18n="cta.1">die Erweiterung Ihres Patentportfolios</li>
-      <li data-i18n="cta.2">maßgeschneiderte Patente für Ihre Produkte und Prozesse</li>
-      <li data-i18n="cta.3">valide IP-Schutzrechte, die Sie gegenüber Wettbewerbern durchsetzen können</li>
-      <li data-i18n="cta.4">frühzeitige Absicherung Ihrer Erfindungen als Forschungseinrichtung oder Start-up</li>
-      <li data-i18n="cta.5">Vollvertretung oder Outsourcing für KMU, Konzerne, Forschungseinrichtungen und Start-ups</li>
-      <li data-i18n="cta.6">Patentrecherchen und deren Auswertung (Patentierbarkeit, FTO, Invalidität)</li>
-      <li data-i18n="cta.7">Klartext in der Beratung als Grundlage für rechtlich fundierte, geschäftliche Entscheidungen</li>
-      <li data-i18n="cta.8">handwerkliche Präzision bei Patentanmeldungen, Bescheidserwiderungen und Einspruchsschriftsätzen (offensiv und defensiv)</li>
-      <li data-i18n="cta.9">Erreichbarkeit und Verlässlichkeit</li>
-
-      <li data-i18n="cta.11">15 Jahre IP-Erfahrung und Expertise aus Kanzlei- und Industrieperspektive</li>
-      <li data-i18n="cta.12">militärischen Hintergrund und Führungserfahrung</li>
-      <li data-i18n="cta.13">technische Expertise insbesondere in computerimplementierten Erfindungen (KI, Simulationen, Messtechnik, Blockchain), Automotive, Luft- und Raumfahrt, Sportartikel, Maschinenbau, Regelungstechnik, Medizintechnik, Elektrotechnik und Rüstungsindustrie</li>
-      <li data-i18n="cta.14">schlanke Kostenstrukturen und zügige Bearbeitungszeiten</li>
-    </ul>
+  <!-- Versprechen & Expertise -->
+  <div class="promise-grid">
+    <div class="promise-col">
+      <p class="label" data-i18n="promise.heading">I. Meine Versprechen</p>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('p1')"><span class="acc-trigger-title" data-i18n="promise.1.title">Verständlichkeit</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-p1"><p data-i18n="promise.1.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('p2')"><span class="acc-trigger-title" data-i18n="promise.2.title">Klarheit</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-p2"><p data-i18n="promise.2.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('p3')"><span class="acc-trigger-title" data-i18n="promise.3.title">Erreichbarkeit</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-p3"><p data-i18n="promise.3.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('p4')"><span class="acc-trigger-title" data-i18n="promise.4.title">Geschwindigkeit</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-p4"><p data-i18n="promise.4.text"></p></div>
+      </div>
+    </div>
+    <div class="promise-col">
+      <p class="label" data-i18n="expertise.heading">II. Meine Expertise</p>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('e1')"><span class="acc-trigger-title" data-i18n="expertise.1.title">Kanzlei- und Industrieerfahrung</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-e1"><p data-i18n="expertise.1.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('e2')"><span class="acc-trigger-title" data-i18n="expertise.2.title">Führungserfahrung</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-e2"><p data-i18n="expertise.2.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('e3')"><span class="acc-trigger-title" data-i18n="expertise.3.title">Technologie</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-e3"><p data-i18n="expertise.3.text"></p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-trigger" onclick="toggleAcc('e4')"><span class="acc-trigger-title" data-i18n="expertise.4.title">Interkulturelle Kompetenz</span><span class="acc-arrow">+</span></div>
+        <div class="acc-body" id="acc-e4"><p data-i18n="expertise.4.text"></p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -815,6 +841,14 @@
       lpiActive = key;
     }
 
+    function toggleAcc(id) {
+      const body    = document.getElementById('acc-' + id);
+      const trigger = body.previousElementSibling;
+      const isOpen  = body.classList.contains('acc-open');
+      body.classList.toggle('acc-open', !isOpen);
+      trigger.classList.toggle('acc-open', !isOpen);
+    }
+
     function showSection(id) {
       document.querySelectorAll('.spa-section').forEach(el => el.classList.remove('view-active'));
       const target = document.getElementById(id);
@@ -908,6 +942,24 @@
         "cta.12": "militärischen Hintergrund und Führungserfahrung",
         "cta.13": "technische Expertise insbesondere in computerimplementierten Erfindungen (KI, Simulationen, Messtechnik, Blockchain), Automotive, Luft- und Raumfahrt, Sportartikel, Maschinenbau, Regelungstechnik, Medizintechnik, Elektrotechnik und Rüstungsindustrie",
         "cta.14": "schlanke Kostenstrukturen und zügige Bearbeitungszeiten",
+        "promise.heading": "I. Meine Versprechen",
+        "promise.1.title": "Verständlichkeit",
+        "promise.1.text": "Viele meiner Mandanten sind Ingenieure, Gründer oder Manager, keine IP-Spezialisten. Deshalb erkläre ich Zusammenhänge so, dass sie ohne Vorkenntnisse nachvollziehbar sind. Und ich sage Ihnen, was ich wirklich denke, auch wenn das unbequem ist. Gute Beratung bedeutet für mich nicht, Risiken kleinzureden oder Erfolge zu versprechen, die ich nicht garantieren kann. Sie bekommen meine ehrliche Einschätzung als Grundlage für rechtlich fundierte, geschäftliche Entscheidungen.",
+        "promise.2.title": "Klarheit",
+        "promise.2.text": "Ein schwach formulierter Anspruch kann den Wert einer Erfindung zunichtemachen — Qualität entsteht nicht durch Zufall. Ich arbeite mit klaren Standards für jeden Schriftsatz, von der Anspruchsformulierung bis zur Begründung im Einspruchsverfahren, und lege höchsten Wert auf sprachliche Präzision, technische Stimmigkeit und juristische Belastbarkeit jedes Dokuments, das meine Kanzlei verlässt.",
+        "promise.3.title": "Erreichbarkeit",
+        "promise.3.text": "Erreichbarkeit ist für mich kein Service-Merkmal, sondern eine Frage der Verlässlichkeit. Sie erreichen mich direkt und ohne Zwischenstationen oder Warteschleifen. Ich bin für meine Mandanten erreichbar, nicht irgendwann, sondern dann, wenn es darauf ankommt. Dabei halte ich meine Mandanten proaktiv auf dem Laufenden, damit keine Ungewissheit entsteht.",
+        "promise.4.title": "Geschwindigkeit",
+        "promise.4.text": "Geschwindigkeit ohne Qualität ist wertlos, aber unnötige Verzögerungen kosten Zeit und Geld. Deshalb bearbeite ich Mandate zügig und ohne bürokratischen Overhead, denn schlanke Prozesse kommen direkt meinen Mandanten zugute. Ich liefere pünktlich, nicht weil Fristen es erzwingen, sondern weil Verlässlichkeit in der Zusammenarbeit für mich selbstverständlich ist.",
+        "expertise.heading": "II. Meine Expertise",
+        "expertise.1.title": "Kanzlei- und Industrieerfahrung",
+        "expertise.1.text": "In 15 Jahren habe ich Patentrecht von beiden Seiten des Tisches erlebt, als externer Berater und als Teil eines Unternehmens, das selbst IP aufbaut und verteidigt. Das bedeutet: Ich weiß, welche Fragen sich ein Mandant intern stellen muss, bevor er eine externe Entscheidung trifft. Und ich berate entsprechend, nicht nur rechtlich korrekt, sondern geschäftlich sinnvoll.",
+        "expertise.2.title": "Führungserfahrung",
+        "expertise.2.text": "Militärische Führungserfahrung lehrt vor allem eines: Verlässlichkeit ist keine Option, sondern eine Grundvoraussetzung. Als Offizier der Deutschen Marine habe ich gelernt, Teams in anspruchsvollen Situationen zu führen, Prioritäten klar zu setzen und auch unter Druck strukturiert zu arbeiten. Diese Haltung bringe ich in jedes Mandat ein, gegenüber meinen Mandanten ebenso wie gegenüber Behörden und Gerichten.",
+        "expertise.3.title": "Technologie",
+        "expertise.3.text": "Technologien entwickeln sich schnell, und der Patentschutz muss mithalten. Meine Expertise erstreckt sich über ein breites Spektrum: Computerimplementierte Erfindungen, KI, Simulationen und Blockchain ebenso wie klassische Ingenieurdisziplinen wie Automotive, Maschinenbau, Medizin- und Wehrtechnik sowie Luft- und Raumfahrt. Diese Breite ermöglicht es mir, auch interdisziplinäre Erfindungen vollständig zu erfassen und strategisch zu schützen.",
+        "expertise.4.title": "Interkulturelle Kompetenz",
+        "expertise.4.text": "Erfolgreiche IP-Arbeit erfordert mehr als juristische Expertise — sie erfordert die Fähigkeit, über Kulturen und Rechtsräume hinweg effektiv zu kommunizieren. Ob asiatische Unternehmen, die in Europa Schutz suchen, US-Mandanten, die den europäischen Markt erschließen, oder europäische Kanzleien, die einen erfahrenen Partner benötigen: Ich kenne die Erwartungen und Arbeitsweisen unterschiedlicher Rechtskulturen und spreche ihre Sprache, nicht immer wörtlich, aber geschäftlich.",
         "svc.1.title": "Patentanmeldungen", "svc.1.desc": "Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils in Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition.",
         "svc.2.title": "Bescheidserwiderungen", "svc.2.desc": "Strategische Erwiderungen auf Prüfungsbescheide vor DPMA und EPA, technisch fundiert und juristisch überzeugend argumentiert.",
         "svc.3.title": "Einspruchsverfahren", "svc.3.desc": "Vertretung in Einspruchsverfahren vor DPMA und EPA, auf der angreifenden wie auf der verteidigenden Seite. Erfahrung aus zahlreichen Verfahren auf beiden Seiten.",
@@ -996,6 +1048,24 @@
         "cta.12": "a military background and leadership experience",
         "cta.13": "technical expertise in particular in computer-implemented inventions (AI, simulations, measurement technology, blockchain), automotive, aerospace, sporting goods, mechanical engineering, control engineering, medical technology, electrical engineering and defence",
         "cta.14": "lean cost structures and fast turnaround times",
+        "promise.heading": "I. My Commitments",
+        "promise.1.title": "Clarity of Communication",
+        "promise.1.text": "Many of my clients are engineers, founders or managers, not IP specialists. I therefore explain complex matters in a way that is easy to follow without prior knowledge. And I tell you what I genuinely think, even when that is uncomfortable. Good advice does not mean downplaying risks or promising outcomes I cannot guarantee. You get my honest assessment as the basis for legally sound, commercially grounded decisions.",
+        "promise.2.title": "Precision",
+        "promise.2.text": "A poorly drafted claim can destroy the value of an invention — quality does not happen by accident. I apply clear standards to every document, from claim drafting to submissions in opposition proceedings, and place the highest importance on linguistic precision, technical coherence and legal robustness in everything that leaves my practice.",
+        "promise.3.title": "Availability",
+        "promise.3.text": "Availability is not a service feature to me — it is a question of reliability. You reach me directly, without intermediaries or hold queues. I am there for my clients not at some point, but when it matters. I also keep clients proactively informed so that uncertainty never sets in.",
+        "promise.4.title": "Speed",
+        "promise.4.text": "Speed without quality is worthless, but unnecessary delays cost time and money. I handle matters efficiently and without bureaucratic overhead, because lean processes benefit my clients directly. I deliver on time, not because deadlines force it, but because reliability in a working relationship is, to me, simply a given.",
+        "expertise.heading": "II. My Expertise",
+        "expertise.1.title": "Law Firm and Industry Experience",
+        "expertise.1.text": "Over 15 years I have experienced patent law from both sides of the table — as external counsel and as part of a company building and defending its own IP. That means I understand the questions a client has to ask internally before making an external decision. I advise accordingly: not just legally correct, but commercially sensible.",
+        "expertise.2.title": "Leadership Experience",
+        "expertise.2.text": "Military leadership experience teaches above all one thing: reliability is not an option, it is a prerequisite. As an officer in the German Navy I learned to lead teams in demanding situations, to set priorities clearly, and to work in a structured way even under pressure. I bring that mindset to every matter — towards my clients, as well as towards authorities and courts.",
+        "expertise.3.title": "Technology",
+        "expertise.3.text": "Technologies evolve fast, and patent protection must keep pace. My expertise spans a broad spectrum: computer-implemented inventions, AI, simulations and blockchain, as well as classical engineering disciplines such as automotive, mechanical engineering, medical and defence technology, and aerospace. This breadth allows me to fully capture and strategically protect even interdisciplinary inventions.",
+        "expertise.4.title": "Intercultural Competence",
+        "expertise.4.text": "Successful IP work requires more than legal expertise — it requires the ability to communicate effectively across cultures and legal systems. Whether Asian companies seeking protection in Europe, US clients entering the European market, or European firms looking for an experienced partner: I know the expectations and working styles of different legal cultures and speak their language, not always literally, but commercially.",
         "svc.1.title": "Patent Applications", "svc.1.desc": "Drafting and filing at DPMA, EPO, and internationally via the PCT route, in both German and English. The focus is on technically precise and strategically aligned claim drafting.",
         "svc.2.title": "Office Action Responses", "svc.2.desc": "Strategic responses to examination reports before DPMA and EPO, technically grounded and legally persuasive.",
         "svc.3.title": "Opposition Proceedings", "svc.3.desc": "Representation in opposition proceedings before DPMA and EPO, both on the attacking and defending side. Experience from numerous proceedings on both sides.",
