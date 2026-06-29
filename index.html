@@ -239,12 +239,18 @@
       margin-bottom: 1.6rem;
     }
     .hero-statement {
-      color: var(--accent-green);
+      color: var(--text-muted);
       font-size: 1.2rem;
       font-weight: 300;
       line-height: 1.8;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1rem;
     }
+    .lpi-tab { cursor: pointer; transition: color 0.2s; display: block; }
+    .lpi-tab:hover { color: var(--text-primary); }
+    .lpi-tab.lpi-active { color: var(--accent-green); }
+    .lpi-panel { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.35s ease; margin-bottom: 1.8rem; }
+    .lpi-panel.lpi-open { max-height: 300px; opacity: 1; }
+    .lpi-text { color: var(--text-muted); font-size: 0.78rem; line-height: 1.8; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle); }
     /* ── Über mich ── */
     .about-grid {
       display: grid;
@@ -429,9 +435,12 @@
       LL.M. Europäisches IP-Recht
     </p>
     <div class="hero-statement" aria-label="Leitspruch">
-      <span data-i18n="hero.s1">Technische Expertise.</span><br>
-      <span data-i18n="hero.s2">Juristische Präzision.</span><br>
-      <span data-i18n="hero.s3">Strategisches Denken.</span>
+      <span class="lpi-tab" data-lpi="learn" onclick="showLPI('learn')">Learn.</span>
+      <span class="lpi-tab" data-lpi="practise" onclick="showLPI('practise')">Practise.</span>
+      <span class="lpi-tab" data-lpi="improve" onclick="showLPI('improve')">Improve.</span>
+    </div>
+    <div class="lpi-panel" id="lpiPanel">
+      <p class="lpi-text" id="lpiText"></p>
     </div>
     <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
   </div>
@@ -779,6 +788,38 @@
 </div>
 
   <script>
+    const lpiTexts = {
+      de: {
+        learn: "Lern ständig weiter, oder werde überflüssig. Ich hatte das Privileg, von herausragenden Praktikern zu lernen, sowohl in der Kanzlei als auch auf Mandantenseite. Lernen hört nie auf: horizontal durch neue Technologien und interkulturelle Kompetenzen, vertikal in immer tiefere Expertise.",
+        practise: "Wissen ohne Anwendung ist nur Potenzial. Was ich in der Praxis schätze, ist die Bereitschaft, voll präsent zu sein — vorbereitet, aufmerksam und verantwortungsvoll — unabhängig von der Komplexität des Falls. Ob eine Sache unkompliziert ist oder alles fordert, was ich habe: der Maßstab, den ich an mich anlege, ändert sich nicht. Diese Konstanz ist für mich das, was Praxis wirklich bedeutet.",
+        improve: "Feedback-Schleifen dienen nicht nur der Selbstverbesserung, sie kommen direkt meinen Mandanten zugute. Wenn ich reflektiere, was in einem Fall gut lief, nehme ich diese Erkenntnis mit in den nächsten. Wenn ein Prozess ineffizient ist, behebe ich ihn, bevor er jemanden Zeit oder Geld kostet. Dieser kumulative Effekt, über Hunderte von Fällen und Jahre der Praxis, ist das, was Kompetenz in Handwerkskunst verwandelt."
+      },
+      en: {
+        learn: "Keep learning, or become obsolete. I had the privilege of learning from outstanding practitioners, in private practice and on the client side. Learning never stops: horizontally across emerging technologies and intercultural competences, vertically into ever deeper expertise.",
+        practise: "Knowledge without application is just potential. What I value in practice is the commitment to show up fully, prepared, attentive and accountable, regardless of the complexity of the matter. Whether a case is straightforward or demands everything I have, the standard I hold myself to does not change. That consistency is, to me, what practice really means.",
+        improve: "Feedback loops are not just about self-improvement; they directly benefit my clients. When I reflect on what worked in a case, I carry that insight into the next one. When a process proves inefficient, I fix it before it costs someone time or money. That compounding effect, over hundreds of cases and years of practice, is what turns competence into craftsmanship."
+      }
+    };
+
+    let lpiActive = null;
+
+    function showLPI(key) {
+      const lang = document.documentElement.lang || 'de';
+      const panel = document.getElementById('lpiPanel');
+      const text  = document.getElementById('lpiText');
+      if (lpiActive === key) {
+        panel.classList.remove('lpi-open');
+        document.querySelectorAll('.lpi-tab').forEach(t => t.classList.remove('lpi-active'));
+        lpiActive = null;
+        return;
+      }
+      text.textContent = lpiTexts[lang][key];
+      panel.classList.add('lpi-open');
+      document.querySelectorAll('.lpi-tab').forEach(t => t.classList.remove('lpi-active'));
+      document.querySelector(`.lpi-tab[data-lpi="${key}"]`).classList.add('lpi-active');
+      lpiActive = key;
+    }
+
     function showSection(id) {
       document.querySelectorAll('.spa-section').forEach(el => el.classList.remove('view-active'));
       const target = document.getElementById(id);
@@ -981,6 +1022,9 @@
         const key = el.getAttribute('data-i18n');
         if (t[key] !== undefined) el.innerHTML = t[key];
       });
+      if (lpiActive) {
+        document.getElementById('lpiText').textContent = lpiTexts[lang][lpiActive];
+      }
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
