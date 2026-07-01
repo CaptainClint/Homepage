@@ -420,29 +420,75 @@
     .usp-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
     .tech-tags { display: flex; flex-wrap: wrap; margin-top: 0.7rem; }
 
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .hero-grid       { grid-template-columns: 1fr; }
-      .hero-photo      { max-width: 320px; margin: 0 auto; }
-      .about-grid      { grid-template-columns: 1fr; }
-      .usp-grid        { grid-template-columns: 1fr 1fr; }
-      .services-grid   { grid-template-columns: 1fr 1fr; }
-      .contact-grid    { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-text       { text-align: center; }
-      .hero-statement  { text-align: left; }
+    /* ── Hamburger (versteckt auf Desktop) ── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      line-height: 1;
     }
 
+    /* ── Responsive: Tablet (≤900px) ── */
+    @media (max-width: 900px) {
+      .about-grid      { grid-template-columns: 1fr; }
+      .profile-grid    { grid-template-columns: 1fr; }
+      .profile-left    { position: static; text-align: center; }
+      .profile-photo   { margin: 0 auto 1rem; }
+      .profile-bio     { text-align: left; }
+      .promise-grid    { grid-template-columns: 1fr; gap: 0; }
+      .usp-row-3       { grid-template-columns: 1fr 1fr; }
+      .usp-row-2       { grid-template-columns: 1fr 1fr; }
+      .services-grid   { grid-template-columns: 1fr 1fr; }
+      .contact-grid    { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── Responsive: Mobil (≤600px) ── */
     @media (max-width: 600px) {
-      .section         { padding: 3rem 1.2rem; }
-      .section-light   { padding: 3rem 1.2rem; }
-      .section-dark    { padding: 3rem 1.2rem; }
-      .nav-inner       { padding: 0 1.2rem; }
-      .hero-grid       { padding: 4rem 1.2rem 3rem; }
-      .usp-grid        { grid-template-columns: 1fr; }
-      .services-grid   { grid-template-columns: 1fr; }
+      /* Navigation */
+      #nav             { padding: 0.8rem 1.2rem; position: relative; }
+      .hamburger       { display: block; }
       .nav-links       { display: none; }
-      #footer          { flex-direction: column; gap: 0.8rem; text-align: center; }
-      .hero-name       { font-size: clamp(2rem, 8vw, 3.5rem); }
+      .nav-links.mobile-open {
+        display: flex; flex-direction: column; align-items: flex-start;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--bg-nav);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 1rem 1.5rem 1.5rem;
+        gap: 1.2rem;
+        backdrop-filter: blur(8px);
+        z-index: 999;
+      }
+
+      /* Hero */
+      #hero            { flex-direction: column; align-items: center; padding: 3rem 1.2rem 2rem; gap: 1.5rem; min-height: auto; }
+      .hero-photo      { width: 150px; height: 200px; }
+      .hero-text       { text-align: center; width: 100%; }
+      .hero-statement  { text-align: left; }
+      .hero-name       { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+
+      /* Sections */
+      .section-light   { padding: 2.5rem 1.2rem; }
+      .section-dark    { padding: 2.5rem 1.2rem; }
+
+      /* Profile */
+      .profile-photo   { max-width: 180px; }
+
+      /* USP */
+      .usp-row-3       { grid-template-columns: 1fr; }
+      .usp-row-2       { grid-template-columns: 1fr; }
+
+      /* Services */
+      .services-grid   { grid-template-columns: 1fr; }
+
+      /* Cookie Banner */
+      #cookieBanner    { flex-direction: column; padding: 1rem 1.2rem; gap: 1rem; align-items: flex-start; }
+
+      /* Footer */
+      #footer          { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.2rem; }
     }
   </style>
 </head>
@@ -451,12 +497,13 @@
   <!-- ══ NAVIGATION ══ -->
   <nav id="nav">
     <a href="#" class="nav-logo" onclick="showSection('hero'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
-    <div class="nav-links">
-      <a href="#ueber-mich" onclick="showSection('ueber-mich'); return false;" data-i18n="nav.about">Über mich</a>
-      <a href="#leistungen" onclick="showSection('leistungen'); return false;" data-i18n="nav.services">Leistungen</a>
-      <a href="#kontakt" onclick="showSection('kontakt'); return false;" data-i18n="nav.contact">Kontakt</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#ueber-mich" onclick="showSection('ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
+      <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
+      <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menü">☰</button>
   </nav>
 
   <!-- ══ HERO ══ -->
@@ -1132,6 +1179,19 @@
       const btn = document.getElementById('langToggle');
       if (btn) btn.textContent = lang === 'de' ? 'EN' : 'DE';
       try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    function toggleMobileMenu() {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('hamburger');
+      const isOpen = links.classList.toggle('mobile-open');
+      btn.textContent = isOpen ? '✕' : '☰';
+    }
+    function closeMobileMenu() {
+      const links = document.getElementById('navLinks');
+      const btn = document.getElementById('hamburger');
+      links.classList.remove('mobile-open');
+      btn.textContent = '☰';
     }
 
     function toggleLanguage() {
