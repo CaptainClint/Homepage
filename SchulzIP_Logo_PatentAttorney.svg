@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" viewBox="0 0 600 160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Goldene Akzentlinie links -->
+  <rect x="40" y="47" width="2" height="50" fill="#b8960c" rx="1"/>
+
+  <!-- SCHULZ -->
+  <text x="54" y="72"
+    font-family="Montserrat, sans-serif" font-weight="300" font-size="28"
+    fill="#0c2340" textLength="158" lengthAdjust="spacingAndGlyphs">SCHULZ</text>
+
+  <!-- IP -->
+  <text x="222" y="72"
+    font-family="Montserrat, sans-serif" font-weight="600" font-size="28"
+    fill="#0c2340" letter-spacing="4">IP</text>
+
+  <!-- PATENT ATTORNEY — linksbündig unter S -->
+  <text x="54" y="90"
+    font-family="Montserrat, sans-serif" font-weight="300" font-size="9"
+    fill="#b8960c" letter-spacing="4">PATENT ATTORNEY</text>
+</svg>
