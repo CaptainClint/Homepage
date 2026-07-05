@@ -203,7 +203,8 @@
     /* ── SPA View Switching ── */
     .spa-section { display: none !important; }
     .spa-section.view-active { display: block !important; }
-    #hero.view-active { display: flex !important; }
+    #home.view-active { display: block !important; }
+    #hero { display: flex; }
     #footer.view-active { display: flex !important; }
 
     /* ── Hero ── */
@@ -508,9 +509,9 @@
 
   <!-- ══ NAVIGATION ══ -->
   <nav id="nav">
-    <a href="#" class="nav-logo" onclick="showSection('hero'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
+    <a href="#" class="nav-logo" onclick="showSection('home'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="#ueber-mich" onclick="showSection('ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
+      <a href="#ueber-mich" onclick="showSection('home','ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
       <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
@@ -518,8 +519,11 @@
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menü">☰</button>
   </nav>
 
+  <!-- ══ HOME (Hero + Über mich, scrollbar) ══ -->
+<div id="home" class="spa-section view-active">
+
   <!-- ══ HERO ══ -->
-<section id="hero" class="spa-section view-active">
+<section id="hero">
   <div class="hero-photo-col">
     <img src="_KOE8603.jpg" alt="Christian Schulz" class="hero-photo" />
   </div>
@@ -531,13 +535,11 @@
 </section>
 
 <!-- ══ ÜBER MICH ══ -->
-<section id="ueber-mich" class="spa-section section-light">
+<section id="ueber-mich" class="section-light">
   <div class="profile-grid">
 
     <!-- ── Linke Spalte ── -->
     <div class="profile-left">
-      <img src="_KOE8831.jpg" alt="Christian Schulz" class="profile-photo" />
-      <p class="profile-name">Christian Schulz</p>
       <p class="profile-creds" data-i18n="about.creds">Dipl.-Ing. Maschinenbau · Offizier<br>MBA Internationales Management<br>LL.M. Europäisches IP-Recht</p>
       <div class="profile-bio">
         <p data-i18n="about.bio1">Ich decke sämtliche Bereiche des Patentrechts ab, insbesondere das Patenterteilungs- und Einspruchsverfahren. Ich habe mehrere hundert Patentanmeldungen und Bescheidserwiderungen zum Auf- und Ausbau der Patentportfolien meiner Mandanten ausgearbeitet. Ich stärke Ihre Schutzrechtspositionen, in Vollvertretung oder als verlängerte Werkbank.</p>
@@ -678,6 +680,8 @@
     </div><!-- /.profile-right -->
   </div><!-- /.profile-grid -->
 </section>
+
+</div><!-- /#home -->
 
 
 <!-- ══ WARUM ICH ══ -->
@@ -923,22 +927,29 @@
       trigger.classList.toggle('acc-open', !isOpen);
     }
 
-    function showSection(id) {
+    function showSection(id, scrollTo) {
       document.querySelectorAll('.spa-section').forEach(el => el.classList.remove('view-active'));
       const target = document.getElementById(id);
       if (target) target.classList.add('view-active');
-      // Show footer on all non-hero views
       const footer = document.getElementById('footer');
-      if (footer) footer.classList.toggle('view-active', id !== 'hero');
-      // Update URL hash without scroll jump
-      try { history.pushState(null, '', id === 'hero' ? '#' : '#' + id); } catch(e) {}
-      window.scrollTo(0, 0);
+      if (footer) footer.classList.add('view-active');
+      const hash = scrollTo ? '#' + scrollTo : (id === 'home' ? '#' : '#' + id);
+      try { history.pushState(null, '', hash); } catch(e) {}
+      if (scrollTo) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollTo);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
 
     // Handle browser back/forward
     window.addEventListener('popstate', function() {
-      const id = location.hash.replace('#', '') || 'hero';
-      showSection(id);
+      const hash = location.hash.replace('#', '');
+      const id = (!hash || hash === 'ueber-mich') ? 'home' : hash;
+      showSection(id, hash === 'ueber-mich' ? 'ueber-mich' : null);
     });
 
     const translations = {
