@@ -208,50 +208,65 @@
 
     /* ── Hero ── */
     #hero {
-      background: var(--bg-primary);
+      background: #e2deda;
       display: flex;
-      align-items: center;
-      gap: 4rem;
-      padding: 4.5rem 2.5rem;
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
       min-height: calc(100vh - 56px);
+      overflow: hidden;
+    }
+    .hero-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3rem 4rem 5rem;
+    }
+    .hero-logo-img {
+      width: 210px;
+      display: block;
+      margin-bottom: 3rem;
+    }
+    .hero-photo-col {
+      width: 44%;
+      flex-shrink: 0;
+      overflow: hidden;
     }
     .hero-photo {
-      width: 220px;
-      height: 290px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: top center;
-      border-radius: 2px;
-      flex-shrink: 0;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
+      display: block;
     }
-    .hero-text { flex: 1; }
     .hero-name {
-      color: var(--text-primary);
-      font-size: 2.4rem;
+      color: #1a1c20;
+      font-size: 2.2rem;
       font-weight: 300;
       margin-bottom: 0.3rem;
       line-height: 1.1;
     }
     .hero-subtitle {
-      color: var(--text-dim);
+      color: #6b7885;
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       line-height: 1.8;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.8rem;
     }
     .hero-statement {
-      color: var(--text-muted);
-      font-size: 1.2rem;
+      color: #6b7885;
+      font-size: 1.15rem;
       font-weight: 300;
       line-height: 1.8;
       margin-bottom: 1rem;
     }
     .lpi-tab { cursor: pointer; transition: color 0.2s; display: block; }
-    .lpi-tab:hover { color: var(--text-primary); }
+    .lpi-tab:hover { color: #1a1c20; }
     .lpi-tab.lpi-active { color: var(--accent-green); }
     .lpi-panel { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.35s ease; margin-bottom: 1.8rem; }
     .lpi-panel.lpi-open { max-height: 300px; opacity: 1; }
-    .lpi-text { color: var(--text-muted); font-size: 0.78rem; line-height: 1.8; padding-top: 0.8rem; border-top: 1px solid var(--border-subtle); }
+    .lpi-text { color: #5a6878; font-size: 0.78rem; line-height: 1.8; padding-top: 0.8rem; border-top: 1px solid #c8c4bf; }
     /* ── Über mich ── */
     .about-grid {
       display: grid;
@@ -465,11 +480,12 @@
       }
 
       /* Hero */
-      #hero            { flex-direction: column; align-items: center; padding: 3rem 1.2rem 2rem; gap: 1.5rem; min-height: auto; }
-      .hero-photo      { width: 150px; height: 200px; }
-      .hero-text       { text-align: center; width: 100%; }
-      .hero-statement  { text-align: left; }
-      .hero-name       { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+      #hero            { flex-direction: column; min-height: auto; }
+      .hero-left       { padding: 2.5rem 1.5rem 2rem; order: 2; }
+      .hero-photo-col  { width: 100%; height: 55vw; order: 1; }
+      .hero-logo-img   { width: 160px; margin-bottom: 1.8rem; }
+      .hero-name       { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+      .hero-statement  { font-size: 1rem; }
 
       /* Sections */
       .section-light   { padding: 2.5rem 1.2rem; }
@@ -509,9 +525,8 @@
 
   <!-- ══ HERO ══ -->
 <section id="hero" class="spa-section view-active">
-  <img src="_KOE8932.jpg" alt="Christian Schulz" class="hero-photo" />
-  <div class="hero-text">
-    <p class="label" data-i18n="hero.eyebrow">Patentanwalt · DPMA · EPA · EPG · EUIPO</p>
+  <div class="hero-left">
+    <img src="SchulzIP_Logo_PatentAttorney.svg" class="hero-logo-img" alt="Schulz IP" />
     <h1 class="hero-name">Christian Schulz</h1>
     <p class="hero-subtitle" data-i18n="hero.subtitle">
       Dipl.-Ing. Maschinenbau &nbsp;·&nbsp; MBA Internationales Management<br>
@@ -526,6 +541,9 @@
       <div class="lpi-panel" id="lpiPanel-improve"><p class="lpi-text" id="lpiText-improve"></p></div>
     </div>
     <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
+  </div>
+  <div class="hero-photo-col">
+    <img src="_KOE8603.jpg" alt="Christian Schulz" class="hero-photo" />
   </div>
 </section>
 
