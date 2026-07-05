@@ -243,26 +243,26 @@
       margin-bottom: 0.3rem;
       line-height: 1.1;
     }
-    .hero-subtitle {
-      color: #6b7885;
+    .hero-role {
+      color: #1a1c20;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .hero-creds {
+      color: var(--text-muted);
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       line-height: 1.8;
-      margin-bottom: 1.8rem;
     }
-    .hero-statement {
-      color: #6b7885;
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.8;
-      margin-bottom: 1rem;
+    .hero-creds-link {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s, border-color 0.2s;
     }
-    .lpi-tab { cursor: pointer; transition: color 0.2s; display: block; }
-    .lpi-tab:hover { color: #1a1c20; }
-    .lpi-tab.lpi-active { color: var(--accent-green); }
-    .lpi-panel { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.35s ease; margin-bottom: 1.8rem; }
-    .lpi-panel.lpi-open { max-height: 300px; opacity: 1; }
-    .lpi-text { color: #5a6878; font-size: 0.78rem; line-height: 1.8; padding-top: 0.8rem; border-top: 1px solid #d0cdc9; }
+    .hero-creds-link:hover { color: var(--accent-green); border-color: var(--accent-green); }
     /* ── Über mich ── */
     .about-grid {
       display: grid;
@@ -525,19 +525,8 @@
   </div>
   <div class="hero-left">
     <h1 class="hero-name">Christian Schulz</h1>
-    <p class="hero-subtitle" data-i18n="hero.subtitle">
-      Dipl.-Ing. Maschinenbau &nbsp;·&nbsp; MBA Internationales Management<br>
-      LL.M. Europäisches IP-Recht
-    </p>
-    <div class="hero-statement" aria-label="Leitspruch">
-      <span class="lpi-tab" data-lpi="learn" onclick="showLPI('learn')" data-i18n="lpi.learn">Master.</span>
-      <div class="lpi-panel" id="lpiPanel-learn"><p class="lpi-text" id="lpiText-learn"></p></div>
-      <span class="lpi-tab" data-lpi="practise" onclick="showLPI('practise')" data-i18n="lpi.practise">Deliver.</span>
-      <div class="lpi-panel" id="lpiPanel-practise"><p class="lpi-text" id="lpiText-practise"></p></div>
-      <span class="lpi-tab" data-lpi="improve" onclick="showLPI('improve')" data-i18n="lpi.improve">Prevail.</span>
-      <div class="lpi-panel" id="lpiPanel-improve"><p class="lpi-text" id="lpiText-improve"></p></div>
-    </div>
-    <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
+    <p class="hero-role" data-i18n="hero.role">Patentanwalt</p>
+    <p class="hero-creds" data-i18n="hero.creds">Zugelassen vor <a href="https://www.dpma.de/" target="_blank" rel="noopener" class="hero-creds-link">DPMA</a> · <a href="https://www.epo.org/" target="_blank" rel="noopener" class="hero-creds-link">EPA</a> · <a href="https://www.unified-patent-court.org/" target="_blank" rel="noopener" class="hero-creds-link">EPG</a> · <a href="https://www.euipo.europa.eu/" target="_blank" rel="noopener" class="hero-creds-link">EUIPO</a></p>
   </div>
 </section>
 
@@ -960,6 +949,8 @@
         "hero.line1": "Technische Expertise.", "hero.line2": "Juristische Präzision.", "hero.line3": "Strategisches Denken.",
         "hero.s1": "Technische Expertise.", "hero.s2": "Juristische Präzision.", "hero.s3": "Strategisches Denken.",
         "hero.cta": "Kontakt aufnehmen",
+        "hero.role": "Patentanwalt",
+        "hero.creds": "Zugelassen vor <a href='https://www.dpma.de/' target='_blank' rel='noopener' class='hero-creds-link'>DPMA</a> · <a href='https://www.epo.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPA</a> · <a href='https://www.unified-patent-court.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPG</a> · <a href='https://www.euipo.europa.eu/' target='_blank' rel='noopener' class='hero-creds-link'>EUIPO</a>",
         "lpi.learn": "Master.", "lpi.practise": "Deliver.", "lpi.improve": "Prevail.",
         "about.label": "Über mich", "about.title": "Ingenieur. Jurist. Stratege. Offizier.",
         "about.creds": "Patentanwalt<br>Zugelassen vor <a href='https://www.dpma.de' target='_blank' rel='noopener' class='creds-link'>DPMA</a> · <a href='https://www.epo.org' target='_blank' rel='noopener' class='creds-link'>EPA</a> · <a href='https://www.unified-patent-court.org' target='_blank' rel='noopener' class='creds-link'>EPG</a> · <a href='https://www.euipo.europa.eu' target='_blank' rel='noopener' class='creds-link'>EUIPO</a>",
@@ -1070,6 +1061,8 @@
         "hero.line1": "Technical expertise.", "hero.line2": "Legal precision.", "hero.line3": "Strategic thinking.",
         "hero.s1": "Technical expertise.", "hero.s2": "Legal precision.", "hero.s3": "Strategic thinking.",
         "hero.cta": "Get in Touch",
+        "hero.role": "Patent Attorney",
+        "hero.creds": "Admitted before <a href='https://www.dpma.de/' target='_blank' rel='noopener' class='hero-creds-link'>GPTO</a> · <a href='https://www.epo.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPO</a> · <a href='https://www.unified-patent-court.org/' target='_blank' rel='noopener' class='hero-creds-link'>UPC</a> · <a href='https://www.euipo.europa.eu/' target='_blank' rel='noopener' class='hero-creds-link'>EUIPO</a>",
         "lpi.learn": "Master.", "lpi.practise": "Deliver.", "lpi.improve": "Prevail.",
         "about.label": "About", "about.title": "Engineer. Lawyer. Strategist. Officer.",
         "about.creds": "Patent Attorney<br>Admitted before <a href='https://www.dpma.de' target='_blank' rel='noopener' class='creds-link'>GPTO</a> · <a href='https://www.epo.org' target='_blank' rel='noopener' class='creds-link'>EPO</a> · <a href='https://www.unified-patent-court.org' target='_blank' rel='noopener' class='creds-link'>UPC</a> · <a href='https://www.euipo.europa.eu' target='_blank' rel='noopener' class='creds-link'>EUIPO</a>",
