@@ -223,11 +223,6 @@
       justify-content: center;
       padding: 4rem 3rem 4rem 5rem;
     }
-    .hero-logo-img {
-      width: 210px;
-      display: block;
-      margin-bottom: 3rem;
-    }
     .hero-photo-col {
       width: 44%;
       flex-shrink: 0;
@@ -481,9 +476,8 @@
 
       /* Hero */
       #hero            { flex-direction: column; min-height: auto; }
-      .hero-left       { padding: 2.5rem 1.5rem 2rem; order: 2; }
-      .hero-photo-col  { width: 100%; height: 55vw; order: 1; }
-      .hero-logo-img   { width: 160px; margin-bottom: 1.8rem; }
+      .hero-left       { padding: 2.5rem 1.5rem 2rem; }
+      .hero-photo-col  { width: 100%; height: 60vw; }
       .hero-name       { font-size: clamp(1.6rem, 6vw, 2.2rem); }
       .hero-statement  { font-size: 1rem; }
 
@@ -525,8 +519,10 @@
 
   <!-- ══ HERO ══ -->
 <section id="hero" class="spa-section view-active">
+  <div class="hero-photo-col">
+    <img src="_KOE8603.jpg" alt="Christian Schulz" class="hero-photo" />
+  </div>
   <div class="hero-left">
-    <img src="SchulzIP_Logo_PatentAttorney.svg" class="hero-logo-img" alt="Schulz IP" />
     <h1 class="hero-name">Christian Schulz</h1>
     <p class="hero-subtitle" data-i18n="hero.subtitle">
       Dipl.-Ing. Maschinenbau &nbsp;·&nbsp; MBA Internationales Management<br>
@@ -541,9 +537,6 @@
       <div class="lpi-panel" id="lpiPanel-improve"><p class="lpi-text" id="lpiText-improve"></p></div>
     </div>
     <a href="#kontakt" class="btn-primary" onclick="showSection('kontakt'); return false;" data-i18n="hero.cta">Kontakt aufnehmen</a>
-  </div>
-  <div class="hero-photo-col">
-    <img src="_KOE8603.jpg" alt="Christian Schulz" class="hero-photo" />
   </div>
 </section>
 
