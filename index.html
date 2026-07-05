@@ -424,6 +424,30 @@
     .form-success { color: var(--accent-green); font-size: 0.82rem; margin-top: 0.7rem; }
 
     /* ── Footer ── */
+    /* ── Back to Top ── */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 2.8rem;
+      height: 2.8rem;
+      background: var(--accent-green);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+
     #footer {
       background: #d8d8d8;
       padding: 1.2rem 2.5rem;
@@ -989,6 +1013,12 @@
     }
 
     // Handle browser back/forward
+    // Back to Top visibility
+    window.addEventListener('scroll', function() {
+      const btn = document.getElementById('backToTop');
+      if (btn) btn.classList.toggle('visible', window.scrollY > 300);
+    });
+
     window.addEventListener('popstate', function() {
       const hash = location.hash.replace('#', '');
       const id = (!hash || hash === 'ueber-mich') ? 'home' : hash;
@@ -1341,5 +1371,7 @@
       <button class="cookie-btn-decline" onclick="cookieDecline()" data-i18n="cookie.decline">Ablehnen</button>
     </div>
   </div>
+
+  <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Nach oben">↑</button>
 </body>
 </html>
