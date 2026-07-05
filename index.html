@@ -496,9 +496,9 @@
       }
 
       /* Hero */
-      #hero            { flex-direction: column; min-height: auto; }
-      .hero-left       { padding: 2.5rem 1.5rem 2rem; }
-      .hero-photo-col  { width: 100%; height: 60vw; }
+      #hero            { flex-direction: column; min-height: calc(100vh - 56px); }
+      .hero-left       { padding: 2rem 1.5rem 2rem; flex-shrink: 0; }
+      .hero-photo-col  { width: 100%; flex: 1; min-height: 0; }
       .hero-name       { font-size: clamp(1.6rem, 6vw, 2.2rem); }
       .hero-statement  { font-size: 1rem; }
 
