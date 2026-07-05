@@ -67,6 +67,14 @@
     #ueber-mich { background: var(--bg-primary); }
     .section-dark  { background: var(--bg-primary);   padding: 4rem 2.5rem; }
 
+    /* ── Kompass ── */
+    .kompass-section { background: var(--bg-secondary); padding: 4rem 2.5rem; }
+    .kompass-intro { color: var(--text-secondary); font-size: 1rem; letter-spacing: 0.04em; margin-bottom: 2.5rem; max-width: 600px; }
+    .kompass-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .kompass-card { background: var(--bg-card); border-top: 3px solid var(--accent-green); border-radius: 4px; padding: 2rem 1.8rem; }
+    .kompass-word { font-size: 1.6rem; font-weight: 300; color: var(--accent-green); margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .kompass-text { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.75; }
+
     /* ── Tag pills ── */
     .tag {
       display: inline-block;
@@ -523,6 +531,7 @@
     <a href="#" class="nav-logo" onclick="showSection('home'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#ueber-mich" onclick="showSection('home','ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
+      <a href="#kompass" onclick="showSection('home','kompass'); closeMobileMenu(); return false;" data-i18n="nav.compass">Kompass</a>
       <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
@@ -690,6 +699,27 @@
 
     </div><!-- /.profile-right -->
   </div><!-- /.profile-grid -->
+</section>
+
+<!-- ══ KOMPASS ══ -->
+<section id="kompass" class="kompass-section">
+  <p class="label" data-i18n="nav.compass">Kompass</p>
+  <h2 class="section-title" data-i18n="compass.title">Kompass</h2>
+  <p class="kompass-intro" data-i18n="compass.intro">Drei Grundsätze. Kein Konjunktiv.</p>
+  <div class="kompass-grid">
+    <div class="kompass-card">
+      <h3 class="kompass-word" data-i18n="lpi.learn">Master.</h3>
+      <p class="kompass-text" data-i18n="compass.master">Maschinenbauingenieur, Marineoffizier, MBA, Patentanwalt: Ich verbinde ingenieurwissenschaftliche Tiefe mit strategischer Disziplin und unternehmerischem Urteilsvermögen. Das Ergebnis ist eine IP-Beratung, die technisch fundiert, rechtlich präzise und ganz auf Ihr Unternehmen zugeschnitten ist.</p>
+    </div>
+    <div class="kompass-card">
+      <h3 class="kompass-word" data-i18n="lpi.practise">Deliver.</h3>
+      <p class="kompass-text" data-i18n="compass.deliver">Keine Ausreden, keine Verzögerungen, keine Überraschungen. Ich liefere Ergebnisse, die Bestand haben. Termingerecht, belastbar, ohne Nachkontrolle einsetzbar.</p>
+    </div>
+    <div class="kompass-card">
+      <h3 class="kompass-word" data-i18n="lpi.improve">Prevail.</h3>
+      <p class="kompass-text" data-i18n="compass.prevail">Patente sind dazu da, durchgesetzt zu werden oder Angriffe zu überstehen, ex parte und inter partes, offensiv und defensiv. Ich baue Positionen auf, die halten, wenn es darauf ankommt.</p>
+    </div>
+  </div>
 </section>
 
 </div><!-- /#home -->
@@ -965,7 +995,11 @@
 
     const translations = {
       de: {
-        "nav.about": "Über mich", "nav.services": "Leistungen", "nav.contact": "Kontakt",
+        "nav.about": "Über mich", "nav.compass": "Kompass", "nav.services": "Leistungen", "nav.contact": "Kontakt",
+        "compass.title": "Kompass", "compass.intro": "Drei Grundsätze. Kein Konjunktiv.",
+        "compass.master": "Maschinenbauingenieur, Marineoffizier, MBA, Patentanwalt: Ich verbinde ingenieurwissenschaftliche Tiefe mit strategischer Disziplin und unternehmerischem Urteilsvermögen. Das Ergebnis ist eine IP-Beratung, die technisch fundiert, rechtlich präzise und ganz auf Ihr Unternehmen zugeschnitten ist.",
+        "compass.deliver": "Keine Ausreden, keine Verzögerungen, keine Überraschungen. Ich liefere Ergebnisse, die Bestand haben. Termingerecht, belastbar, ohne Nachkontrolle einsetzbar.",
+        "compass.prevail": "Patente sind dazu da, durchgesetzt zu werden oder Angriffe zu überstehen, ex parte und inter partes, offensiv und defensiv. Ich baue Positionen auf, die halten, wenn es darauf ankommt.",
         "hero.eyebrow": "Patentanwalt · DPMA · EPA · EPG · EUIPO",
         "hero.subtitle": "Dipl.-Ing. Maschinenbau &nbsp;·&nbsp; MBA Internationales Management<br>LL.M. Europäisches IP-Recht",
         "hero.line1": "Technische Expertise.", "hero.line2": "Juristische Präzision.", "hero.line3": "Strategisches Denken.",
@@ -1077,7 +1111,11 @@
         "impressum.title": "Impressum", "privacy.title": "Datenschutzerklärung",
       },
       en: {
-        "nav.about": "About", "nav.services": "Services", "nav.contact": "Contact",
+        "nav.about": "About", "nav.compass": "Compass", "nav.services": "Services", "nav.contact": "Contact",
+        "compass.title": "Compass", "compass.intro": "Three principles. No conditionals.",
+        "compass.master": "Mechanical engineer, naval officer, MBA, patent attorney: I combine engineering depth with strategic discipline and commercial judgment. The result is IP advice that is technically sound, legally precise and built around your business.",
+        "compass.deliver": "No excuses, no delays, no surprises. I deliver work that holds up. On time, on point, ready to use without a second review.",
+        "compass.prevail": "Patents exist to be enforced or to withstand attack, ex parte and inter partes, offensive and defensive. I build positions that hold when it counts.",
         "hero.eyebrow": "Patent Attorney · GPTO · EPO · UPC · EUIPO",
         "hero.subtitle": "Mechanical Engineer (Dipl.-Ing.) &nbsp;·&nbsp; MBA International Management<br>LL.M. European IP Law",
         "hero.line1": "Technical expertise.", "hero.line2": "Legal precision.", "hero.line3": "Strategic thinking.",
