@@ -532,6 +532,12 @@
       /* Sections */
       .section-light   { padding: 2.5rem 1.2rem; }
       .section-dark    { padding: 2.5rem 1.2rem; }
+      .patucation-section { background: var(--bg-primary); padding: 4rem 2.5rem; }
+      .patucation-intro { color: var(--text-secondary); font-size: 0.76rem; line-height: 1.85; margin-bottom: 2.5rem; max-width: 48rem; }
+      .patucation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+      .patucation-placeholder { background: var(--bg-card); border-left: 2px solid var(--accent-green); padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; min-height: 180px; }
+      .patucation-icon { font-size: 2rem; color: var(--accent-green); opacity: 0.5; }
+      .patucation-coming { color: var(--text-secondary); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
       /* Profile */
       .profile-photo   { max-width: 180px; }
@@ -563,6 +569,7 @@
       <a href="#ueber-mich" onclick="showSection('home','ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
       <a href="#kompass" onclick="showSection('home','kompass'); closeMobileMenu(); return false;" data-i18n="nav.compass">Kompass</a>
       <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
+      <a href="#patucation" onclick="showSection('patucation'); closeMobileMenu(); return false;" data-i18n="nav.patucation">Patucation</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
@@ -902,6 +909,19 @@
   </div>
 </section>
 
+<!-- ══ PATUCATION ══ -->
+<section id="patucation" class="spa-section patucation-section">
+  <p class="label" data-i18n="patucation.label">Patucation</p>
+  <h2 class="section-title" data-i18n="patucation.title">Patucation</h2>
+  <p class="patucation-intro" data-i18n="patucation.intro">Keep up to date with the latest UPC headnote decisions — convenient and dust-free. Just 2 minutes a day will keep the backlog away!</p>
+  <div class="patucation-grid">
+    <div class="patucation-placeholder">
+      <span class="patucation-icon">▶</span>
+      <p class="patucation-coming" data-i18n="patucation.coming">Videos coming soon</p>
+    </div>
+  </div>
+</section>
+
 <!-- ══ KONTAKT ══ -->
 <section id="kontakt" class="spa-section section-dark">
   <p class="label" data-i18n="contact.label">Kontakt</p>
@@ -1042,7 +1062,10 @@
 
     const translations = {
       de: {
-        "nav.about": "Über mich", "nav.compass": "Kompass", "nav.services": "Leistungen", "nav.contact": "Kontakt",
+        "nav.about": "Über mich", "nav.compass": "Kompass", "nav.services": "Leistungen", "nav.patucation": "Patucation", "nav.contact": "Kontakt",
+        "patucation.label": "Patucation", "patucation.title": "Patucation",
+        "patucation.intro": "Die neuesten Leitsatzentscheidungen des Einheitlichen Patentgerichts, kurz und prägnant aufbereitet. Zwei Minuten am Tag genügen, um stets auf dem Laufenden zu bleiben.",
+        "patucation.coming": "Videos in Kürze",
         "compass.title": "Kompass", "compass.intro": "Auf See bestimmt man den eigenen Standort durch die Peilung zweier bekannter Objekte. Ich orientiere mich an zwei Positionen: der Lage meines Mandanten und seinem Ziel. Was uns gemeinsam dorthin führt, sind drei Grundsätze.",
         "compass.master": "Maschinenbauingenieur, Marineoffizier, MBA, Patentanwalt: Ich verbinde ingenieurwissenschaftliche Tiefe mit strategischer Disziplin und unternehmerischem Urteilsvermögen. Das Ergebnis ist eine IP-Beratung, die technisch fundiert, rechtlich präzise und ganz auf Ihr Unternehmen zugeschnitten ist.",
         "compass.deliver": "Keine Ausreden, keine Verzögerungen, keine Überraschungen. Ich liefere Ergebnisse, die Bestand haben. Termingerecht, belastbar, ohne Nachkontrolle einsetzbar.",
@@ -1158,7 +1181,10 @@
         "impressum.title": "Impressum", "privacy.title": "Datenschutzerklärung",
       },
       en: {
-        "nav.about": "About", "nav.compass": "Compass", "nav.services": "Services", "nav.contact": "Contact",
+        "nav.about": "About", "nav.compass": "Compass", "nav.services": "Services", "nav.patucation": "Patucation", "nav.contact": "Contact",
+        "patucation.label": "Patucation", "patucation.title": "Patucation",
+        "patucation.intro": "Keep up to date with the latest UPC headnote decisions — convenient and dust-free. Just 2 minutes a day will keep the backlog away!",
+        "patucation.coming": "Videos coming soon",
         "compass.title": "Compass", "compass.intro": "At sea, you determine your position by taking bearings on two known objects. I orient myself by two positions: my client's situation and their goal. What guides us there together are three principles.",
         "compass.master": "Mechanical engineer, naval officer, MBA, patent attorney: I combine engineering depth with strategic discipline and commercial judgment. The result is IP advice that is technically sound, legally precise and built around your business.",
         "compass.deliver": "No excuses, no delays, no surprises. I deliver work that holds up. On time, on point, ready to use without a second review.",
