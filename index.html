@@ -67,13 +67,7 @@
     #ueber-mich { background: var(--bg-primary); }
     .section-dark  { background: var(--bg-primary);   padding: 4rem 2.5rem; }
 
-    /* ── Kompass ── */
-    .kompass-section { background: var(--bg-primary); padding: 4rem 2.5rem; }
-    .kompass-intro { color: var(--text-secondary); font-size: 0.76rem; line-height: 1.85; margin-bottom: 2.5rem; max-width: 100%; }
-    .kompass-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 100%; }
-    .kompass-card { background: var(--bg-card); border-top: 3px solid var(--accent-green); border-radius: 4px; padding: 2rem 1.8rem; }
-    .kompass-word { font-size: 0.72rem; font-weight: 500; color: var(--accent-green); margin-bottom: 1rem; letter-spacing: 0.18em; text-transform: uppercase; }
-    .kompass-text { color: var(--text-secondary); font-size: 0.76rem; line-height: 1.85; }
+
 
     /* ── Tag pills ── */
     .tag {
@@ -554,7 +548,6 @@
       .usp-row-2       { grid-template-columns: 1fr; }
 
       /* Kompass */
-      .kompass-grid    { grid-template-columns: 1fr; }
 
       /* Services */
       .services-grid   { grid-template-columns: 1fr; }
@@ -574,7 +567,6 @@
     <a href="#" class="nav-logo" onclick="showSection('home'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#ueber-mich" onclick="showSection('home','ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
-      <a href="#kompass" onclick="showSection('home','kompass'); closeMobileMenu(); return false;" data-i18n="nav.compass">Kompass</a>
       <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
       <a href="#patucation" onclick="showSection('patucation'); closeMobileMenu(); return false;" data-i18n="nav.patucation">Patucation</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
@@ -743,26 +735,6 @@
 
     </div><!-- /.profile-right -->
   </div><!-- /.profile-grid -->
-</section>
-
-<!-- ══ KOMPASS ══ -->
-<section id="kompass" class="kompass-section">
-  <h2 class="section-title" style="display:flex;align-items:center;gap:0.5rem;"><span style="color:var(--accent-green);font-size:1.1rem;line-height:1;">⊕</span><span data-i18n="compass.title">Kompass</span></h2>
-  <p class="kompass-intro" data-i18n="compass.intro">Auf See bestimmt man den eigenen Standort durch die Peilung zweier bekannter Objekte. Ich orientiere mich an zwei Positionen: der Lage meines Mandanten und seinem Ziel. Was uns gemeinsam dorthin führt, sind drei Grundsätze.</p>
-  <div class="kompass-grid">
-    <div class="kompass-card">
-      <h3 class="kompass-word" data-i18n="lpi.learn">Master.</h3>
-      <p class="kompass-text" data-i18n="compass.master">Maschinenbauingenieur, Marineoffizier, MBA, Patentanwalt: Ich verbinde ingenieurwissenschaftliche Tiefe mit strategischer Disziplin und unternehmerischem Urteilsvermögen. Das Ergebnis ist eine IP-Beratung, die technisch fundiert, rechtlich präzise und ganz auf Ihr Unternehmen zugeschnitten ist.</p>
-    </div>
-    <div class="kompass-card">
-      <h3 class="kompass-word" data-i18n="lpi.practise">Deliver.</h3>
-      <p class="kompass-text" data-i18n="compass.deliver">Keine Ausreden, keine Verzögerungen, keine Überraschungen. Ich liefere Ergebnisse, die Bestand haben. Termingerecht, belastbar, ohne Nachkontrolle einsetzbar.</p>
-    </div>
-    <div class="kompass-card">
-      <h3 class="kompass-word" data-i18n="lpi.improve">Prevail.</h3>
-      <p class="kompass-text" data-i18n="compass.prevail">Patente sind dazu da, durchgesetzt zu werden oder Angriffe zu überstehen, ex parte und inter partes, offensiv und defensiv. Ich baue Positionen auf, die halten, wenn es darauf ankommt.</p>
-    </div>
-  </div>
 </section>
 
 </div><!-- /#home -->
@@ -1065,14 +1037,10 @@
 
     const translations = {
       de: {
-        "nav.about": "Über mich", "nav.compass": "Kompass", "nav.services": "Leistungen", "nav.patucation": "Headnotes", "nav.contact": "Kontakt",
+        "nav.about": "Über mich", "nav.services": "Leistungen", "nav.patucation": "Headnotes", "nav.contact": "Kontakt",
         "patucation.label": "Headnotes", "patucation.title": "Headnotes",
         "patucation.intro": "Die neuesten Leitsatzentscheidungen des Einheitlichen Patentgerichts, kurz und prägnant aufbereitet. Zwei Minuten am Tag genügen, um stets auf dem Laufenden zu bleiben.",
         "patucation.coming": "Videos in Kürze",
-        "compass.title": "Kompass", "compass.intro": "Auf See bestimmt man den eigenen Standort durch die Peilung zweier bekannter Objekte. Ich orientiere mich an zwei Positionen: der Lage meines Mandanten und seinem Ziel. Was uns gemeinsam dorthin führt, sind drei Grundsätze.",
-        "compass.master": "Maschinenbauingenieur, Marineoffizier, MBA, Patentanwalt: Ich verbinde ingenieurwissenschaftliche Tiefe mit strategischer Disziplin und unternehmerischem Urteilsvermögen. Das Ergebnis ist eine IP-Beratung, die technisch fundiert, rechtlich präzise und ganz auf Ihr Unternehmen zugeschnitten ist.",
-        "compass.deliver": "Keine Ausreden, keine Verzögerungen, keine Überraschungen. Ich liefere Ergebnisse, die Bestand haben. Termingerecht, belastbar, ohne Nachkontrolle einsetzbar.",
-        "compass.prevail": "Patente sind dazu da, durchgesetzt zu werden oder Angriffe zu überstehen, ex parte und inter partes, offensiv und defensiv. Ich baue Positionen auf, die halten, wenn es darauf ankommt.",
         "hero.eyebrow": "Patentanwalt · DPMA · EPA · EPG · EUIPO",
         "hero.subtitle": "Dipl.-Ing. Maschinenbau &nbsp;·&nbsp; MBA Internationales Management<br>LL.M. Europäisches IP-Recht",
         "hero.line1": "Technische Expertise.", "hero.line2": "Juristische Präzision.", "hero.line3": "Strategisches Denken.",
@@ -1080,7 +1048,6 @@
         "hero.cta": "Kontakt aufnehmen",
         "hero.role": "Patentanwalt",
         "hero.creds": "Zugelassen vor <a href='https://www.dpma.de/' target='_blank' rel='noopener' class='hero-creds-link'>DPMA</a> · <a href='https://www.epo.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPA</a> · <a href='https://www.unified-patent-court.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPG</a> · <a href='https://www.euipo.europa.eu/' target='_blank' rel='noopener' class='hero-creds-link'>EUIPO</a>",
-        "lpi.learn": "Master.", "lpi.practise": "Deliver.", "lpi.improve": "Prevail.",
         "about.label": "Über mich", "about.title": "Ingenieur. Jurist. Stratege. Offizier.",
         "about.creds": "Dipl.-Ing. Maschinenbau · Offizier<br>MBA Internationales Management<br>LL.M. Europäisches IP-Recht",
         "about.bio1": "Ich decke sämtliche Bereiche des Patentrechts ab, insbesondere das Patenterteilungs- und Einspruchsverfahren. Ich habe mehrere hundert Patentanmeldungen und Bescheidserwiderungen zum Auf- und Ausbau der Patentportfolien meiner Mandanten ausgearbeitet, insbesondere im deutschen, europäischen, chinesischen, japanischen und US-Patentrechtsraum. Ich stärke Ihre Schutzrechtspositionen, in Vollvertretung oder als verlängerte Werkbank.",
@@ -1185,14 +1152,10 @@
         "impressum.title": "Impressum", "privacy.title": "Datenschutzerklärung",
       },
       en: {
-        "nav.about": "About", "nav.compass": "Compass", "nav.services": "Services", "nav.patucation": "Headnotes", "nav.contact": "Contact",
+        "nav.about": "About", "nav.services": "Services", "nav.patucation": "Headnotes", "nav.contact": "Contact",
         "patucation.label": "Headnotes", "patucation.title": "Headnotes",
         "patucation.intro": "Keep up to date with the latest UPC headnote decisions — convenient and dust-free. Just 2 minutes a day will keep the backlog away!",
         "patucation.coming": "Videos coming soon",
-        "compass.title": "Compass", "compass.intro": "At sea, you determine your position by taking bearings on two known objects. I orient myself by two positions: my client's situation and their goal. What guides us there together are three principles.",
-        "compass.master": "Mechanical engineer, naval officer, MBA, patent attorney: I combine engineering depth with strategic discipline and commercial judgment. The result is IP advice that is technically sound, legally precise and built around your business.",
-        "compass.deliver": "No excuses, no delays, no surprises. I deliver work that holds up. On time, on point, ready to use without a second review.",
-        "compass.prevail": "Patents exist to be enforced or to withstand attack, ex parte and inter partes, offensive and defensive. I build positions that hold when it counts.",
         "hero.eyebrow": "Patent Attorney · GPTO · EPO · UPC · EUIPO",
         "hero.subtitle": "Mechanical Engineer (Dipl.-Ing.) &nbsp;·&nbsp; MBA International Management<br>LL.M. European IP Law",
         "hero.line1": "Technical expertise.", "hero.line2": "Legal precision.", "hero.line3": "Strategic thinking.",
@@ -1200,7 +1163,6 @@
         "hero.cta": "Get in Touch",
         "hero.role": "Patent Attorney",
         "hero.creds": "Admitted before <a href='https://www.dpma.de/' target='_blank' rel='noopener' class='hero-creds-link'>GPTO</a> · <a href='https://www.epo.org/' target='_blank' rel='noopener' class='hero-creds-link'>EPO</a> · <a href='https://www.unified-patent-court.org/' target='_blank' rel='noopener' class='hero-creds-link'>UPC</a> · <a href='https://www.euipo.europa.eu/' target='_blank' rel='noopener' class='hero-creds-link'>EUIPO</a>",
-        "lpi.learn": "Master.", "lpi.practise": "Deliver.", "lpi.improve": "Prevail.",
         "about.label": "About", "about.title": "Engineer. Lawyer. Strategist. Officer.",
         "about.creds": "Mechanical Engineer (Dipl.-Ing.) · Naval Officer · MBA International Management<br>LL.M. European IP Law",
         "about.bio1": "I cover all areas of patent law, with a particular focus on patent prosecution and opposition proceedings. I have drafted several hundred patent applications and responses to office actions to establish and expand my clients' patent portfolios, particularly in the German, European, Chinese, Japanese, and U.S. patent jurisdictions. I reinforce your IP positions, as lead counsel or as an extended workbench.",
