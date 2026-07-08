@@ -540,6 +540,8 @@
       .patucation-intro { color: var(--text-secondary); font-size: 0.76rem; line-height: 1.85; margin-bottom: 2.5rem; max-width: 48rem; }
       .patucation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
       .patucation-placeholder { background: var(--bg-card); border-left: 2px solid var(--accent-green); padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; min-height: 180px; }
+      .patucation-video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 720px; }
+      .patucation-video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
       .patucation-icon { font-size: 2rem; color: var(--accent-green); opacity: 0.5; }
       .patucation-coming { color: var(--text-secondary); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
@@ -916,9 +918,8 @@
   <h2 class="section-title" data-i18n="patucation.title">Patucation</h2>
   <p class="patucation-intro" data-i18n="patucation.intro">Keep up to date with the latest UPC headnote decisions — convenient and dust-free. Just 2 minutes a day will keep the backlog away!</p>
   <div class="patucation-grid">
-    <div class="patucation-placeholder">
-      <span class="patucation-icon">▶</span>
-      <p class="patucation-coming" data-i18n="patucation.coming">Videos coming soon</p>
+    <div class="patucation-video-wrap">
+      <iframe src="https://www.youtube.com/embed/B0WP-NTw620" title="UPC Weekly Review Week 27/2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </section>
