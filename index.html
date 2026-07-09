@@ -569,8 +569,8 @@
   <nav id="nav">
     <a href="#" class="nav-logo" onclick="showSection('home'); return false;"><span class="logo-name">SCHULZ</span><span class="logo-ip">IP</span></a>
     <div class="nav-links" id="navLinks">
-      <a href="#ueber-mich" onclick="showSection('home','ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
-      <a href="#leistungen" onclick="showSection('leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
+      <a href="#leistungen" onclick="showSection('home','leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
+      <a href="#ueber-mich" onclick="showSection('ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
       <a href="#patucation" onclick="showSection('patucation'); closeMobileMenu(); return false;" data-i18n="nav.patucation">Patucation</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
@@ -593,8 +593,10 @@
   </div>
 </section>
 
+</div><!-- /#home -->
+
 <!-- ══ ÜBER MICH ══ -->
-<section id="ueber-mich" class="section-light">
+<section id="ueber-mich" class="spa-section section-light" style="padding-top:5rem;">
   <h2 class="section-title" data-i18n="nav.about">Über mich</h2>
   <div class="profile-grid">
 
@@ -739,8 +741,6 @@
     </div><!-- /.profile-right -->
   </div><!-- /.profile-grid -->
 </section>
-
-</div><!-- /#home -->
 
 
 <!-- ══ WARUM ICH ══ -->
@@ -1017,6 +1017,10 @@
       document.querySelectorAll('.spa-section').forEach(el => el.classList.remove('view-active'));
       const target = document.getElementById(id);
       if (target) target.classList.add('view-active');
+      if (id === 'home') {
+        const leistungen = document.getElementById('leistungen');
+        if (leistungen) leistungen.classList.add('view-active');
+      }
       const footer = document.getElementById('footer');
       if (footer) footer.classList.add('view-active');
       const hash = scrollTo ? '#' + scrollTo : (id === 'home' ? '#' : '#' + id);
@@ -1040,8 +1044,8 @@
 
     window.addEventListener('popstate', function() {
       const hash = location.hash.replace('#', '');
-      const id = (!hash || hash === 'ueber-mich') ? 'home' : hash;
-      showSection(id, hash === 'ueber-mich' ? 'ueber-mich' : null);
+      const id = (!hash || hash === 'leistungen') ? 'home' : hash;
+      showSection(id, hash === 'leistungen' ? 'leistungen' : null);
     });
 
     const translations = {
@@ -1325,6 +1329,7 @@
       // Show section from hash if present
       const hash = location.hash.replace('#', '');
       if (hash && document.getElementById(hash)) showSection(hash);
+      else showSection('home');
     })();
 
     // Contact form: AJAX submit to Formspree
