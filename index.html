@@ -358,6 +358,9 @@
     .service-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
     .service-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
     .promise-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle); }
+    .promise-cta-row { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: center; }
+    .promise-cta-btn { display: inline-block; padding: 0.85rem 2.8rem; background: #0c2340; color: #fff; font-size: 0.75rem; font-family: inherit; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, border-color 0.2s; border: 1px solid #0c2340; }
+    .promise-cta-btn:hover { background: #b8960c; border-color: #b8960c; color: #fff; }
     .promise-col .label { margin-bottom: 0.6rem; }
     .acc-item      { border-bottom: 1px solid var(--border-subtle); }
     .acc-trigger   { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; cursor: pointer; gap: 1rem; }
@@ -882,10 +885,10 @@
         <div class="acc-trigger" onclick="toggleAcc('p3')"><span class="acc-trigger-title" data-i18n="promise.3.title">Erreichbarkeit</span><span class="acc-arrow">+</span></div>
         <div class="acc-body" id="acc-p3"><p data-i18n="promise.3.text"></p></div>
       </div>
-      <div class="section-cta-row">
-        <a href="#kontakt" class="section-cta" onclick="showSection('kontakt'); return false;" data-i18n="cta.contact">Erstgespräch vereinbaren</a>
-      </div>
     </div>
+  </div>
+  <div class="promise-cta-row">
+    <a href="#kontakt" class="promise-cta-btn" onclick="showSection('kontakt'); return false;" data-i18n="cta.contact">Erstgespräch vereinbaren</a>
   </div>
 </section>
 
@@ -909,7 +912,6 @@
 <!-- ══ KONTAKT ══ -->
 <section id="kontakt" class="spa-section section-dark">
   <p class="label" data-i18n="contact.label">Kontakt</p>
-  <h2 class="section-title" data-i18n="contact.title">Sprechen Sie mich an</h2>
   <div class="contact-grid">
     <div class="contact-info">
       <div class="contact-item">
@@ -1266,7 +1268,7 @@
         "svc.2.title": "Office Action Responses", "svc.2.desc": "Strategic responses to examination reports before GPTO and EPO, technically grounded and legally persuasive.",
         "svc.3.title": "Opposition Proceedings", "svc.3.desc": "Representation in opposition proceedings before GPTO and EPO, both on the attacking and defending side. Experience from numerous proceedings on both sides.",
         "svc.4.title": "FTO & Patent Searches", "svc.4.desc": "Freedom-to-operate analyses and patentability and validity searches with clear, strategically actionable recommendations.",
-        "contact.label": "Contact", "contact.title": "Let's Talk",
+        "contact.label": "Contact", "contact.title": "",
         "contact.addr.label": "Address", "contact.addr.value": "Heinrich-Knote-Straße 7a<br>82343 Pöcking, Germany",
         "contact.email.label": "Email", "contact.phone.label": "Phone",
         "form.name": "Your Name", "form.email": "Your Email", "form.subject": "Subject",
