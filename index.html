@@ -1366,11 +1366,6 @@
     });
 
     // ── Cookie Banner ──
-    (function initCookie() {
-      if (localStorage.getItem('cookieConsent')) return;
-      document.getElementById('cookieBanner').classList.remove('cookie-hidden');
-    })();
-
     function cookieAccept() {
       localStorage.setItem('cookieConsent', 'accepted');
       document.getElementById('cookieBanner').classList.add('cookie-hidden');
@@ -1388,6 +1383,15 @@
       const el = document.getElementById('cookieText');
       if (el && t['cookie.text']) el.innerHTML = t['cookie.text'];
     };
+
+    // init cookie banner after DOM is fully parsed (div lives after this script tag)
+    document.addEventListener('DOMContentLoaded', function() {
+      const lang = (function() { try { return localStorage.getItem('lang'); } catch(e) { return null; } })() || (navigator.language || '').slice(0, 2).toLowerCase();
+      setLanguage(lang === 'en' ? 'en' : 'de');
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieBanner').classList.remove('cookie-hidden');
+      }
+    });
   </script>
 
   <!-- Cookie Banner -->
