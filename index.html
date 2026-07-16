@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D50EBNHR8"></script>
+  <!-- Google Analytics — only loads after cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9D50EBNHR8');
+    function loadAnalytics() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9D50EBNHR8';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-9D50EBNHR8');
+    }
+    if (localStorage.getItem('cookieConsent') === 'accepted') loadAnalytics();
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1379,6 +1385,7 @@
     function cookieAccept() {
       localStorage.setItem('cookieConsent', 'accepted');
       document.getElementById('cookieBanner').classList.add('cookie-hidden');
+      loadAnalytics();
     }
     function cookieDecline() {
       localStorage.setItem('cookieConsent', 'declined');
