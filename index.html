@@ -373,6 +373,9 @@
     .svc-icon { font-size: 1.1rem; flex-shrink: 0; line-height: 1; }
     .service-title { color: var(--text-primary); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; }
     .service-desc  { color: var(--text-muted); font-size: 0.77rem; line-height: 1.7; }
+    .wipano-teaser { margin-top: 0.6rem; }
+    .wipano-link   { color: var(--accent-green); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .wipano-link:hover { opacity: 0.75; }
     .promise-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle); }
     .promise-cta-row { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: center; }
     .promise-cta-btn { display: inline-block; padding: 0.85rem 2.8rem; background: #0c2340; color: #fff; font-size: 0.75rem; font-family: inherit; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, border-color 0.2s; border: 1px solid #0c2340; }
@@ -845,7 +848,7 @@
         <span class="svc-icon" style="color:var(--accent-green)">✦</span>
         <h3 class="service-title" data-i18n="svc.1.title">Patentanmeldungen</h3>
       </div>
-      <p class="service-desc" data-i18n="svc.1.desc">Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils in Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition.</p>
+      <p class="service-desc" data-i18n="svc.1.desc">Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils auf Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition. Als Start-up oder Gründer können Sie für Ihre erste Patentanmeldung über <a href="#wipano" onclick="showSection('wipano');return false;" class="wipano-link">WIPANO</a> bis zu 10.000 € Förderung abrufen.</p>
     </div>
     <div class="service-card">
       <div class="service-header">
@@ -905,6 +908,42 @@
   </div>
   <div class="promise-cta-row">
     <a href="#kontakt" class="promise-cta-btn" onclick="showSection('kontakt'); return false;" data-i18n="cta.contact">Erstgespräch vereinbaren</a>
+  </div>
+</section>
+
+<!-- ══ WIPANO ══ -->
+<section id="wipano" class="spa-section section-light">
+  <p class="label">Förderung</p>
+  <h2 class="section-title" style="margin-bottom:2rem;">WIPANO</h2>
+
+  <div style="max-width:640px;">
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.85;margin-bottom:1.4rem;" data-i18n="wipano.intro">WIPANO, <em>Wissens- und Technologietransfer durch Patente und Normen</em>, ist ein Förderprogramm des Bundesministeriums für Wirtschaft und Energie. Es unterstützt kleine und mittlere Unternehmen (KMU), die erstmals eine Patentanmeldung einreichen, mit einem nicht rückzahlbaren Zuschuss von 50 % auf förderfähige Kosten.</p>
+
+    <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;" data-i18n="wipano.modules.label">Förderbausteine</p>
+    <div style="display:grid;gap:0.75rem;margin-bottom:1.6rem;">
+      <div style="border-left:2px solid var(--accent-green);padding:0.6rem 1rem;background:var(--bg-card, rgba(0,0,0,0.03));">
+        <p style="font-size:0.78rem;font-weight:600;color:var(--text-main);margin-bottom:0.2rem;" data-i18n="wipano.m1.title">Modul 1, bis zu 10.000 €</p>
+        <p style="font-size:0.76rem;color:var(--text-muted);line-height:1.7;" data-i18n="wipano.m1.desc">Patentanmeldung, Stand-der-Technik-Recherche, Patentanwaltsleistungen und Amtsgebühren. Antragsstellung läuft fortlaufend bis zum 31. Oktober 2027.</p>
+      </div>
+      <div style="border-left:2px solid var(--accent-green);padding:0.6rem 1rem;background:var(--bg-card, rgba(0,0,0,0.03));">
+        <p style="font-size:0.78rem;font-weight:600;color:var(--text-main);margin-bottom:0.2rem;" data-i18n="wipano.m2.title">Modul 2, bis zu 6.000 €</p>
+        <p style="font-size:0.76rem;color:var(--text-muted);line-height:1.7;" data-i18n="wipano.m2.desc">Kosten-Nutzen-Analyse zur Verwertung, Marken- und Designanmeldungen, Lizenzberatung sowie erste Verwertungsaktivitäten.</p>
+      </div>
+    </div>
+
+    <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;" data-i18n="wipano.links.label">Offizielle Informationen</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem;">
+      <a href="https://www.innovation-beratung-foerderung.de/INNO/Navigation/DE/WIPANO/Patentierung-Unternehmen/patentierung-unternehmen.html" target="_blank" rel="noopener" style="font-size:0.72rem;letter-spacing:0.08em;color:var(--accent-green);border:1px solid var(--accent-green);padding:0.4rem 0.9rem;text-decoration:none;text-transform:uppercase;" data-i18n="wipano.link1">Förderrichtlinie (INNO)</a>
+      <a href="https://www.ptj.de/projektfoerderung/wipano-wissens-und-technologietransfer-durch-patente-und-normen" target="_blank" rel="noopener" style="font-size:0.72rem;letter-spacing:0.08em;color:var(--accent-green);border:1px solid var(--accent-green);padding:0.4rem 0.9rem;text-decoration:none;text-transform:uppercase;" data-i18n="wipano.link2">Projektträger Jülich (PtJ)</a>
+    </div>
+
+    <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;" data-i18n="wipano.pitch.label">Warum Schulz IP?</p>
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.85;margin-bottom:1.6rem;" data-i18n="wipano.pitch">Gründer, die ihr erstes Patent anmelden, können über WIPANO bis zu 10.000 € Bundesförderung abrufen. Als erfahrener Patentanwalt mit Industriehintergrund sorge ich dafür, dass Ihre Erfindung nicht nur formal geschützt ist, sondern auch strategisch. Ich begleite Sie von der ersten Einschätzung über die Antragstellung bis zur erteilten Schutzrechtsposition.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+      <a href="#kontakt" onclick="showSection('kontakt');return false;" style="display:inline-block;padding:0.55rem 1.4rem;background:var(--accent-green);color:#fff;font-size:0.72rem;font-family:inherit;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;" data-i18n="wipano.cta">Erstgespräch vereinbaren</a>
+      <a href="#leistungen" onclick="showSection('home','leistungen');return false;" style="display:inline-block;padding:0.55rem 1.4rem;border:1px solid var(--text-muted);color:var(--text-muted);font-size:0.72rem;font-family:inherit;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;" data-i18n="wipano.back">Zurück zu Leistungen</a>
+    </div>
   </div>
 </section>
 
@@ -1289,7 +1328,20 @@
         "expertise.4.title": "Interkulturelle Kompetenz",
         "expertise.4.text": "Ich berate internationale Mandanten — aus Asien, den USA und anderen Regionen — bei der Schutzrechtsstrategie für den deutschen und europäischen Markt. Ich kenne die Erwartungen und Arbeitsweisen unterschiedlicher Rechtskulturen aus eigener Anschauung und spreche ihre Sprache: nicht immer wörtlich, aber geschäftlich.",
         "cta.contact": "Erstgespräch vereinbaren",
-        "svc.1.title": "Patentanmeldungen", "svc.1.desc": "Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils in Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition.",
+        "svc.1.title": "Patentanmeldungen", "svc.1.desc": "Ausarbeitung und Einreichung beim DPMA, EPA und international über den PCT-Weg, jeweils auf Deutsch und Englisch. Der Fokus liegt auf technisch präziser und strategisch ausgerichteter Schutzrechtsdefinition. Als Start-up oder Gründer können Sie für Ihre erste Patentanmeldung über <a href=\"#wipano\" onclick=\"showSection('wipano');return false;\" class=\"wipano-link\">WIPANO</a> bis zu 10.000 € Förderung abrufen.",
+        "wipano.intro": "WIPANO, <em>Wissens- und Technologietransfer durch Patente und Normen</em>, ist ein Förderprogramm des Bundesministeriums für Wirtschaft und Energie. Es unterstützt kleine und mittlere Unternehmen (KMU), die erstmals eine Patentanmeldung einreichen, mit einem nicht rückzahlbaren Zuschuss von 50 % auf förderfähige Kosten.",
+        "wipano.modules.label": "Förderbausteine",
+        "wipano.m1.title": "Modul 1, bis zu 10.000 €",
+        "wipano.m1.desc": "Patentanmeldung, Stand-der-Technik-Recherche, Patentanwaltsleistungen und Amtsgebühren. Antragsstellung läuft fortlaufend bis zum 31. Oktober 2027.",
+        "wipano.m2.title": "Modul 2, bis zu 6.000 €",
+        "wipano.m2.desc": "Kosten-Nutzen-Analyse zur Verwertung, Marken- und Designanmeldungen, Lizenzberatung sowie erste Verwertungsaktivitäten.",
+        "wipano.links.label": "Offizielle Informationen",
+        "wipano.link1": "Förderrichtlinie (INNO)",
+        "wipano.link2": "Projektträger Jülich (PtJ)",
+        "wipano.pitch.label": "Warum Schulz IP?",
+        "wipano.pitch": "Gründer, die ihr erstes Patent anmelden, können über WIPANO bis zu 10.000 € Bundesförderung abrufen. Als erfahrener Patentanwalt mit Industriehintergrund sorge ich dafür, dass Ihre Erfindung nicht nur formal geschützt ist, sondern auch strategisch. Ich begleite Sie von der ersten Einschätzung über die Antragstellung bis zur erteilten Schutzrechtsposition.",
+        "wipano.cta": "Erstgespräch vereinbaren",
+        "wipano.back": "Zurück zu Leistungen",
         "svc.2.title": "Bescheidserwiderungen", "svc.2.desc": "Strategische Erwiderungen auf Prüfungsbescheide vor DPMA und EPA, technisch fundiert und juristisch überzeugend argumentiert.",
         "svc.3.title": "Einspruchsverfahren", "svc.3.desc": "Vertretung in Einspruchsverfahren vor DPMA und EPA, auf der angreifenden wie auf der verteidigenden Seite. Erfahrung aus zahlreichen Verfahren auf beiden Seiten.",
         "svc.4.title": "FTO & Patentrecherchen", "svc.4.desc": "Freedom-to-Operate-Analysen sowie Patentierbarkeits- und Rechtsbeständigkeitsrecherchen mit klaren, strategisch verwertbaren Handlungsempfehlungen.",
@@ -1412,7 +1464,20 @@
         "expertise.4.title": "Intercultural Competence",
         "expertise.4.text": "I advise international clients — from Asia, the United States, and other regions — on IP strategy for the German and European market. I know the expectations and working styles of different legal cultures from first-hand experience and speak their language: not always literally, but commercially.",
         "cta.contact": "Schedule a First Call",
-        "svc.1.title": "Patent Applications", "svc.1.desc": "Drafting and filing at GPTO, EPO, and internationally via the PCT route, in both German and English. The focus is on technically precise and strategically aligned claim drafting.",
+        "svc.1.title": "Patent Applications", "svc.1.desc": "Drafting and filing at GPTO, EPO, and internationally via the PCT route, in both German and English. The focus is on technically precise and strategically aligned claim drafting. As a start-up or founder, you can claim up to €10,000 in government funding for your first patent application through <a href=\"#wipano\" onclick=\"showSection('wipano');return false;\" class=\"wipano-link\">WIPANO</a>.",
+        "wipano.intro": "WIPANO, <em>Knowledge and Technology Transfer through Patents and Standards</em>, is a German federal funding programme supporting SMEs filing their first patent application with a non-repayable subsidy of 50% on eligible costs.",
+        "wipano.modules.label": "Funding Modules",
+        "wipano.m1.title": "Module 1 — up to €10,000",
+        "wipano.m1.desc": "Patent application, prior art search, attorney fees, and official filing fees. Applications accepted on a rolling basis until 31 October 2027.",
+        "wipano.m2.title": "Module 2 — up to €6,000",
+        "wipano.m2.desc": "Cost-benefit analysis for commercialisation, trademark and design filings, licensing advice, and initial exploitation activities.",
+        "wipano.links.label": "Official Information",
+        "wipano.link1": "Funding Guidelines (INNO)",
+        "wipano.link2": "Project Management (PtJ)",
+        "wipano.pitch.label": "Why Schulz IP?",
+        "wipano.pitch": "Start-ups filing their first patent can claim up to €10,000 in government funding through WIPANO. As an experienced patent attorney with an industrial background, I ensure your invention is protected not only formally — but strategically. I guide you from the initial assessment through the funding application to a granted patent.",
+        "wipano.cta": "Schedule a First Call",
+        "wipano.back": "Back to Services",
         "svc.2.title": "Office Action Responses", "svc.2.desc": "Strategic responses to examination reports before GPTO and EPO, technically grounded and legally persuasive.",
         "svc.3.title": "Opposition Proceedings", "svc.3.desc": "Representation in opposition proceedings before GPTO and EPO, both on the attacking and defending side. Experience from numerous proceedings on both sides.",
         "svc.4.title": "FTO & Patent Searches", "svc.4.desc": "Freedom-to-operate analyses and patentability and validity searches with clear, strategically actionable recommendations.",
