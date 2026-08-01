@@ -151,9 +151,42 @@ sup.fn-ref{font-size:0.7em;vertical-align:super;color:var(--navy);font-weight:60
 .panel-body::-webkit-scrollbar{width:5px}
 .panel-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
 @media(max-width:600px){
-  .topbar{padding:0 14px}.stats-row{gap:12px}
-  .filterbar{padding:10px 14px}.main{padding:14px}
-  .grid{grid-template-columns:1fr}:root{--panel-w:100vw}
+  /* ── Topbar ── */
+  .topbar{padding:0 12px;height:auto;min-height:48px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;gap:6px}
+  .topbar-brand{font-size:13px;flex:1}
+  .topbar-sep{display:none}
+  .stats-row{order:3;width:100%;display:flex;gap:16px;padding:6px 0 2px;border-top:1px solid rgba(255,255,255,.12)}
+  .stat-n{font-size:14px}
+  .stat-l{font-size:9px}
+  .home-btn{font-size:11px;padding:3px 9px}
+  .theme-btn{font-size:11px;padding:3px 8px}
+
+  /* ── Filterbar ── */
+  .filterbar{padding:10px 12px;flex-direction:column;align-items:stretch;gap:8px;top:48px}
+  .search-wrap{min-width:0;max-width:100%;width:100%}
+  .search-wrap input{font-size:14px;padding:9px 12px 9px 34px}
+  .norm-dd{min-width:0;max-width:100%;width:100%}
+  .norm-trigger{font-size:14px;padding:9px 28px 9px 10px}
+  .norm-panel{min-width:calc(100vw - 24px);max-width:calc(100vw - 24px);left:0}
+  select{width:100%;font-size:14px;padding:9px 28px 9px 10px}
+  .filter-count{margin-left:0;align-self:flex-start}
+
+  /* ── Card grid ── */
+  .main{padding:12px}
+  .grid{grid-template-columns:1fr}
+  .card{padding:14px 14px}
+
+  /* ── Detail panel ── */
+  :root{--panel-w:100vw}
+  .panel-header{padding:14px 16px}
+  .panel-body{padding:14px 16px}
+  .tab-btn{font-size:12px;padding:8px 12px}
+  .detail-label{font-size:10px}
+  .detail-value{font-size:13px}
+
+  /* ── Touch targets ── */
+  .adm-btn{padding:9px 14px;font-size:13px}
+  .norm-item{padding:10px 14px 10px 16px;font-size:13px}
 }
 </style>
 </head>
@@ -633,6 +666,7 @@ function renderHeadnotes(d){
   }).join('');
 }
 function _pdfUrl(relPath){return PDF_BASE?PDF_BASE.replace(/\/$/,'')+'/'+relPath:relPath;}
+function _viewerUrl(url){return'https://docs.google.com/viewer?url='+encodeURIComponent(url);}
 function renderFullText(d){
   const el=document.getElementById('tab-fulltext');
   if(!d['PDF']){el.innerHTML='<div class="detail-value" style="color:var(--muted);padding:20px 0">No PDF available for this decision.</div>';return;}
@@ -642,7 +676,7 @@ function renderFullText(d){
     <svg width="40" height="50" viewBox="0 0 40 50" fill="none" style="opacity:.35"><rect x="2" y="2" width="36" height="46" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 14h20M10 22h20M10 30h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 2v12h12" fill="var(--bg)" stroke="currentColor" stroke-width="2"/></svg>
     <div style="font-size:13px;color:var(--muted);text-align:center;max-width:340px;word-break:break-all">${esc(fname)}</div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-      <a href="${esc(pdfHref)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <a href="${_viewerUrl(pdfHref)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
         <svg width="13" height="15" viewBox="0 0 13 15" fill="none"><rect x=".75" y=".75" width="11.5" height="13.5" rx="1.75" stroke="currentColor" stroke-width="1.5"/><line x1="3.5" y1="4.5" x2="9.5" y2="4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="3.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="3.5" y1="10.5" x2="6.5" y2="10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         Open PDF
       </a>
@@ -689,7 +723,7 @@ function renderVideo(d){
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" style="opacity:.35"><circle cx="22" cy="22" r="20" stroke="currentColor" stroke-width="2"/><polygon points="18,14 32,22 18,30" fill="currentColor"/></svg>
       <div style="font-size:13px;color:var(--muted);text-align:center;max-width:340px;word-break:break-all">${esc(fname)}</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-        <a href="${esc(path)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        <a href="${_viewerUrl(path)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polygon points="3,1 12,6.5 3,12" fill="currentColor"/></svg>
           Play
         </a>
@@ -711,7 +745,7 @@ function renderOnePager(d){
     <svg width="44" height="44" viewBox="0 0 44 44" fill="none" style="opacity:.35"><rect x="8" y="4" width="28" height="36" rx="3" stroke="currentColor" stroke-width="2"/><line x1="14" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="26" x2="24" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     <div style="font-size:13px;color:var(--muted);text-align:center">${esc(safe)}.pdf</div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-      <a href="${path}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <a href="${_viewerUrl(path)}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;padding:9px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
         <svg width="13" height="14" viewBox="0 0 13 14" fill="none"><rect x="1" y="1" width="11" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><line x1="3.5" y1="5" x2="9.5" y2="5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="3.5" y1="7.5" x2="9.5" y2="7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="3.5" y1="10" x2="7" y2="10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         Open PDF
       </a>
