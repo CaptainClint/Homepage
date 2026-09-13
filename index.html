@@ -593,7 +593,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#leistungen" onclick="showSection('home','leistungen'); closeMobileMenu(); return false;" data-i18n="nav.services">Leistungen</a>
       <a href="#ueber-mich" onclick="showSection('ueber-mich'); closeMobileMenu(); return false;" data-i18n="nav.about">Über mich</a>
-      <a href="#patucation" onclick="showSection('patucation'); closeMobileMenu(); return false;" data-i18n="nav.patucation">Patucation</a>
+      <a href="/headnotes" onclick="showSection('patucation'); closeMobileMenu(); history.replaceState(null,'','/headnotes'); return false;" data-i18n="nav.patucation">Patucation</a>
       <a href="#kontakt" onclick="showSection('kontakt'); closeMobileMenu(); return false;" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">EN</button>
     </div>
