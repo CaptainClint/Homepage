@@ -583,6 +583,37 @@
       /* Footer */
       #footer          { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.2rem; }
     }
+
+    /* ── Newsletter ── */
+    .nl-section{--nl-navy:#0B1F3A;--nl-gold:#C9A227;--nl-paper:#F4F0E6;max-width:900px;margin:0 auto}
+    .nl-intro{margin:0 0 24px;font-size:1.05rem;line-height:1.6}
+    .nl-sub{display:inline-block;background:var(--nl-navy);color:#fff;text-decoration:none;
+      border-radius:8px;padding:10px 20px;font-weight:600}
+    .nl-sub:hover{opacity:.9}
+    .nl-item{border:1px solid rgba(11,31,58,.15);border-radius:12px;margin:16px 0;overflow:hidden;
+      background:#fff}
+    .nl-item>summary{list-style:none;cursor:pointer;padding:0;display:block}
+    .nl-item>summary::-webkit-details-marker{display:none}
+    .nl-cover{display:block;width:100%;height:auto}
+    .nl-head{padding:16px 20px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+    .nl-no{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--nl-gold);
+      font-weight:700}
+    .nl-title{font-size:1.15rem;font-weight:700;color:var(--nl-navy)}
+    .nl-body{padding:4px 20px 24px;line-height:1.65}
+    .nl-body p{margin:0 0 14px}
+    .nl-body hr{border:0;border-top:1px solid rgba(11,31,58,.15);margin:20px 0}
+    .nl-body .nl-case{font-weight:700;color:var(--nl-navy)}
+    .nl-actions{display:flex;flex-wrap:wrap;gap:10px;padding:0 20px 20px}
+    .nl-btn{display:inline-block;text-decoration:none;border-radius:8px;padding:9px 18px;font-weight:600}
+    .nl-btn-primary{background:var(--nl-navy);color:#fff}
+    .nl-btn-secondary{background:var(--nl-paper);color:var(--nl-navy);
+      border:1px solid rgba(11,31,58,.2)}
+    .nl-btn:hover{opacity:.9}
+    @media (prefers-color-scheme:dark){
+      .nl-item{background:#0E1B2C;border-color:rgba(255,255,255,.14)}
+      .nl-title,.nl-body .nl-case{color:#fff}
+      .nl-btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+    }
   </style>
 </head>
 <body>
@@ -957,6 +988,12 @@
     <a href="#headnotes-videos" onclick="showSection('headnotes-videos');return false;" style="display:inline-block;padding:0.55rem 1.4rem;border:1px solid var(--accent-green);color:var(--accent-green);font-size:0.72rem;font-family:inherit;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--accent-green)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent-green)'" data-i18n="videos.link">Zu den Videos</a>
   </div>
 
+  <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;" data-i18n="patucation.newsletter">Newsletter</p>
+  <p style="color:var(--text-muted);font-size:0.76rem;line-height:1.85;margin-bottom:1.2rem;" data-i18n="newsletter.desc">Jede Woche eine Leitsatzentscheidung als Geschichte aus der Praxis, mit der dahinterstehenden Vorschrift. Als LinkedIn-Newsletter und hier im Archiv.</p>
+  <div style="margin-bottom:3rem;">
+    <a href="#newsletter" onclick="showSection('newsletter');return false;" style="display:inline-block;padding:0.55rem 1.4rem;border:1px solid var(--accent-green);color:var(--accent-green);font-size:0.72rem;font-family:inherit;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--accent-green)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--accent-green)'" data-i18n="newsletter.link">Zum Newsletter</a>
+  </div>
+
   <p style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;" data-i18n="patucation.dashboard">AURA</p>
   <p style="color:var(--text-muted);font-size:0.76rem;line-height:1.85;margin-bottom:1.2rem;" data-i18n="dashboard.desc">Leitsatzentscheidungen des EPG mit AURA erkunden, der KI-gestützten kommentierten Datenbank zu den Verfahrensregeln und dem Übereinkommen des EPG.</p>
   <div style="max-width:360px;margin:0 0 1.4rem;aspect-ratio:9/16;border-radius:8px;overflow:hidden;">
@@ -1150,6 +1187,102 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<section id="newsletter" class="spa-section patucation-section">
+  <h2 class="section-title" data-i18n="newsletter.title">UPC Headnotes Review</h2>
+  <section class="nl-section">
+    <p class="nl-intro">Every week, one UPC decision told as a case from practice, with the provision behind it. Published as the LinkedIn newsletter <strong>UPC Headnotes Review</strong> and archived here.</p>
+    <p><a class="nl-sub" href="https://www.linkedin.com/newsletters/upc-headnotes-review-7508464162193436675/" target="_blank" rel="noopener">Subscribe on LinkedIn</a></p>
+    <details class="nl-item" open>
+      <summary>
+        <img class="nl-cover" src="bilder/episode-3.png" alt="Commercial Materials as Evidence Under Article 60 UPCA" loading="lazy">
+        <div class="nl-head">
+          <span class="nl-no">Episode #3 &middot; Week 40/2026</span>
+          <span class="nl-title">Commercial Materials as Evidence Under Article 60 UPCA</span>
+        </div>
+      </summary>
+      <div class="nl-body">
+        <p>UPC Headnotes Review · Every UPC headnote decision, linked to the provision it interprets.</p>
+        <p>You are the person who must decide whether to pursue a suspected patent infringement case. Your competitor has just launched tissue paper products that closely resemble your patented Miscanthus pulp technology. Your team needs proof that their products actually use your invention. However, the competitor refuses to cooperate, and you cannot access their production facilities or technical documentation. Time is running out before evidence disappears or gets destroyed.</p>
+        <p>The rule allows you to ask a court to preserve evidence before filing suit. This preservation can cover promotional materials, commercial documents, and even some operational information. However, the court will not allow bailiffs to interrogate the defendant&#x27;s staff about technical secrets. Therefore, you can only compel practical access like passwords needed for inspecting digital files. Importantly, your need to secure evidence generally outweighs the defendant&#x27;s concerns, even if they claim prior use rights.</p>
+        <p>The Court of Appeal held that evidence preservation applies broadly to promotional and commercial documentation containing infringement indicators. The court rejected attempts to question personnel but permitted orders requiring the defendant to provide necessary access information like passwords. Prior use rights cannot block preservation measures unless the infringement claim is clearly doomed on summary review. Take away: secure evidence before suit, but expect limits on what questions bailiffs can ask during inspection.</p>
+        <p>AURA grew by 18 decisions from July 2024 this week, so the archive of earlier case law keeps filling up. The Court itself published no new headnote decision.</p>
+        <hr>
+        <p>Every decision is in AURA, linked to the article or rule it interprets, together with the headnotes in English, the legal basis and a One-Pager. <a href="https://www.schulz-patent.de/headnotes/">Open the AURA dashboard</a>.</p>
+        <p>Short videos on the individual decisions: @schulz_ip on Instagram and YouTube.</p>
+        <p><em>For informational purposes only. This is not legal advice.</em></p>
+      </div>
+      <div class="nl-actions">
+        <a class="nl-btn nl-btn-primary" href="https://www.schulz-patent.de/headnotes/">Open the AURA dashboard</a>
+        <a class="nl-btn nl-btn-secondary" href="https://www.linkedin.com/pulse/episode-3-commercial-materials-evidence-under-article-schulz-rvlhf" target="_blank" rel="noopener">Read and subscribe on LinkedIn</a>
+      </div>
+    </details>
+    <details class="nl-item">
+      <summary>
+        <img class="nl-cover" src="bilder/episode-2.png" alt="Declaration of Non-Infringement Before Grant" loading="lazy">
+        <div class="nl-head">
+          <span class="nl-no">Episode #2 &middot; Week 39/2026</span>
+          <span class="nl-title">Declaration of Non-Infringement Before Grant</span>
+        </div>
+      </summary>
+      <div class="nl-body">
+        <p>UPC Headnotes Review · Every UPC headnote decision, linked to the provision it interprets.</p>
+        <p>Picture the moment when you file for a declaration of non-infringement, weeks before the patents issue. Your opponent does not answer on the merits. Instead it objects that the Court has no competence at all. It argues that the Agreement speaks of patents and never mentions applications. Further, it insists that competence is judged on the day the action is filed.</p>
+        <p>Article 32(1) UPCA lists the actions for which the Court has exclusive competence. Declarations of non-infringement of patents are among them, under Article 32(1)(b) UPCA. Importantly, the Court reads your request by your actual intent, not by its literal wording. If you seek the declaration for the titles once granted, the action stays within that provision. Therefore their pending status at filing does not turn it into an action on applications.</p>
+        <p>The Court of Appeal rejected the preliminary objection. The claimant had defined both titles jointly as the Patents, with an intention to grant already issued for one. Therefore the action fell within Article 32(1)(b) UPCA, and the objection on competence failed. However, whether the claim came too early is a question of admissibility instead. Rules 61 and 63 may require a granted patent, and that point stays for the further proceedings.</p>
+        <p>The UPC published 2 headnote decisions in week 39/2026. Here is what they decide, and which provision they interpret.</p>
+        <p><span class="nl-case">UPC_CFI_029/2026 / UPC_CFI_1934/2026 / UPC_CFI_1940/2026</span> — Local Division in Brussels, counterclaim for revocation</p>
+        <p><em>R. 305 RoP</em> · EP 3 689 383, chimeric antigen receptors targeting b-cell maturation antigen</p>
+        <p>The Rules of Procedure do not permit aggressive interventions. This means an intervener cannot direct claims against parties differently from those it supports. Such interventions lack procedural standing under UPC rules.</p>
+        <p><span class="nl-case">UPC-CoA-90/2026</span> — Court of Appeal Luxembourg, procedural order</p>
+        <p><em>Art. 32 UPCA</em> · EP 4 594 194, labelling module configured for labelling with partial labels</p>
+        <p>Pre-grant declarations of non-infringement raise an admissibility question. This is not a question of the court&#x27;s competence. Rather, the issue concerns whether the instituted claims are legally permissible. The UPC must therefore assess admissibility of the claims separately from its jurisdictional authority.</p>
+        <hr>
+        <p>All 2 decisions are in AURA, linked to the article or rule they interpret, together with the headnotes in English, the legal basis and a One-Pager: https://www.schulz-patent.de/headnotes/?utm_source=linkedin&amp;utm_medium=newsletter</p>
+        <p>Short videos on the individual decisions: @schulz_ip on Instagram and YouTube.</p>
+        <p><em>For informational purposes only. This is not legal advice.</em></p>
+      </div>
+      <div class="nl-actions">
+        <a class="nl-btn nl-btn-primary" href="https://www.schulz-patent.de/headnotes/">Open the AURA dashboard</a>
+        <a class="nl-btn nl-btn-secondary" href="https://www.linkedin.com/pulse/episode-2-declaration-non-infringement-before-grant-christian-schulz-vimce" target="_blank" rel="noopener">Read and subscribe on LinkedIn</a>
+      </div>
+    </details>
+    <details class="nl-item">
+      <summary>
+        <img class="nl-cover" src="bilder/episode-1.png" alt="Security Assessment" loading="lazy">
+        <div class="nl-head">
+          <span class="nl-no">Episode #1 &middot; Week 38/2026</span>
+          <span class="nl-title">Security Assessment</span>
+        </div>
+      </summary>
+      <div class="nl-body">
+        <p>UPC Headnotes Review · Every UPC headnote decision, linked to the provision it interprets.</p>
+        <p>Imagine you file a patent infringement claim at the UPC, confident in your case. Your opponent immediately asks the Court to order you to post security for their legal costs. You&#x27;re an SME with modest resources and limited current operations. The Court might order you to pay EUR 75,000 upfront before trial even begins. Now you face a choice: fund the security or abandon your patent claim.</p>
+        <p>The Court can order security under Article 69(4) UPCA. However, the Court must also consider whether you face economic hardship under Article 2(2) of the Cost Scale. Therefore, you should raise hardship arguments immediately in the security proceedings. Importantly, you must prove actual operational activity, staff, and turnover. Simply being an SME is not enough to convince the Court.</p>
+        <p>The Court valued this infringement claim at EUR 1,000,000 and set a legal cost ceiling of EUR 112,000. As a result, the security order required EUR 75,000 deposit. The claimant&#x27;s SME status alone did not lower the ceiling. The key takeaway: submit audited accounts showing real operations and employees when claiming economic hardship.</p>
+        <p>The UPC published 3 headnote decisions in week 38/2026. Here is what they decide, and which provision they interpret.</p>
+        <p><span class="nl-case">UPC-CoA-919/2025 / UPC-CoA-920/2025</span> — Court of Appeal Luxembourg, procedural order</p>
+        <p><em>R. 362 RoP</em> · EP 3 215 288, sintered metal preparation and its use for joining components</p>
+        <p>According to the headnotes, an absolute bar to proceedings is a final legal circumstance that prevents court action. Importantly, this bar cannot be fixed by parties through later submissions or performance. Therefore, it operates independently of the parties&#x27; control.</p>
+        <p><span class="nl-case">UPC_CFI_871/2026</span> — Local Division in Brussels, procedural order</p>
+        <p><em>Art. 69 UPCA</em> · EP 3 841 735, method and system for improving the print quality</p>
+        <p>Article 2(2) of the Scale of Recoverable Costs allows adjustment when a requesting party is unsuccessful. The Court must apply this provision when assessing security applications as well. This is because the Court assumes from the outset that the requesting party will be unsuccessful. Therefore, the provision on liability to bear costs applies to security assessments too. Additionally, the value of a dispute is definitively determined during the Interim Conference. However, any value assessment made when considering a security application remains provisional only. This means that such a provisional assessment does not bind the Court or Judge-Rapporteur later. In particular, it does not bind them when they finally determine the claim value or set cost ceilings.</p>
+        <p><span class="nl-case">UPC-CoA-121/2026</span> — Court of Appeal Luxembourg, costs order</p>
+        <p><em>Art. 74 UPCA</em> · EP 3 854 403, use of substituted aminopropionate compounds in treatment of sars-cov-2 infection</p>
+        <p>Appeals against revocation decisions automatically suspend enforcement. This automatic suspensive effect applies because validity decisions affect all parties, not just those involved. The suspended patent&#x27;s legal status remains protected while the appeal proceeds. However, suspensive effect may also be granted at the Court&#x27;s discretion in other circumstances.</p>
+        <hr>
+        <p>All 3 decisions are in AURA, linked to the article or rule they interpret, together with the headnotes in English, the legal basis and a One-Pager: https://www.schulz-patent.de/headnotes/?utm_source=linkedin&amp;utm_medium=newsletter</p>
+        <p>Short videos on the individual decisions: @schulz_ip on Instagram and YouTube.</p>
+        <p><em>For informational purposes only. This is not legal advice.</em></p>
+      </div>
+      <div class="nl-actions">
+        <a class="nl-btn nl-btn-primary" href="https://www.schulz-patent.de/headnotes/">Open the AURA dashboard</a>
+        <a class="nl-btn nl-btn-secondary" href="https://www.linkedin.com/pulse/episode-1-security-assessment-christian-schulz-sa1ce" target="_blank" rel="noopener">Read and subscribe on LinkedIn</a>
+      </div>
+    </details>
+  </section>
 </section>
 
 <!-- ══ KONTAKT ══ -->
@@ -1351,6 +1484,10 @@
         "dashboard.desc": "Leitsatzentscheidungen des EPG mit AURA erkunden, der KI-gestützten kommentierten Datenbank zu den Verfahrensregeln und dem Übereinkommen des EPG.",
         "patucation.videos": "Videos",
         "patucation.dashboard": "AURA",
+        "patucation.newsletter": "Newsletter",
+        "newsletter.title": "UPC Headnotes Review",
+        "newsletter.desc": "Jede Woche eine Leitsatzentscheidung als Geschichte aus der Praxis, mit der dahinterstehenden Vorschrift. Als LinkedIn-Newsletter und hier im Archiv.",
+        "newsletter.link": "Zum Newsletter",
         "videos.link": "Zu den Videos",
         "playlist.2728": "Wochen 27/28 · 2026",
         "playlist.29": "Woche 29 · 2026",
@@ -1494,6 +1631,10 @@
         "dashboard.desc": "Explore UPC headnote decisions with AURA, the AI-powered annotated database of UPC Rules of Procedure and Agreement.",
         "patucation.videos": "Videos",
         "patucation.dashboard": "AURA",
+        "patucation.newsletter": "Newsletter",
+        "newsletter.title": "UPC Headnotes Review",
+        "newsletter.desc": "Every week, one UPC decision told as a case from practice, with the provision behind it. Published as the LinkedIn newsletter UPC Headnotes Review and archived here.",
+        "newsletter.link": "Read Newsletter",
         "videos.link": "Watch Videos",
         "playlist.2728": "Weeks 27/28 · 2026",
         "playlist.29": "Week 29 · 2026",
